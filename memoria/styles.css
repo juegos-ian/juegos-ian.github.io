@@ -46,8 +46,8 @@ main {
 
 /* Estilo del tablero */
 .board {
-    display: flex; /* Cambiado a flexbox para alinear las cartas horizontalmente en pantallas grandes */
-    flex-wrap: wrap; /* Permite que las cartas se envuelvan a la siguiente fila si es necesario */
+    display: grid; /* Usar grid para pantallas grandes y medios */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajustar columnas automáticamente */
     gap: 10px; /* Espacio entre las cartas */
     margin-top: 20px;
     justify-content: center; /* Centra el tablero horizontalmente */
@@ -112,9 +112,9 @@ footer {
     }
 
     .board {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
+        display: grid; /* Rehabilitar grid para pantallas grandes */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajustar columnas automáticamente */
+        gap: 15px; /* Espacio entre las cartas */
     }
 }
 
@@ -130,14 +130,15 @@ footer {
     }
 
     .board {
-        display: flex; /* Usado para alinear las cartas horizontalmente */
-        flex-wrap: wrap; /* Permite que las cartas se envuelvan en múltiples filas si es necesario */
+        display: grid; /* Usar grid para mantener un diseño vertical en móviles */
+        grid-template-columns: repeat(2, 1fr); /* Dos cartas por fila */
         gap: 10px; /* Espacio entre las cartas */
-        justify-content: center; /* Centra las cartas horizontalmente */
+        width: 100%; /* Asegura que el tablero use todo el ancho disponible */
+        max-width: 500px; /* Máximo ancho del tablero para evitar que se expanda demasiado */
     }
 
     .card {
-        width: calc(50% - 10px); /* Ajusta el tamaño para que dos cartas caben en una fila, considerando el espacio entre ellas */
+        width: 100%; /* Ajusta el ancho de las cartas al tamaño de la celda del grid */
         height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
     }
 }
