@@ -32,17 +32,16 @@ function createGameBoard() {
         const card = document.createElement('div');
         card.classList.add('card');
         card.dataset.image = image;
-        card.dataset.index = index;
 
         const frontFace = document.createElement('div');
         frontFace.classList.add('front-face');
-        frontFace.textContent = '🌟'; // Símbolo de cubierta de carta (puedes cambiarlo por una imagen de cubierta)
+        frontFace.textContent = '🌟'; // Símbolo de cubierta de carta
 
         const backFace = document.createElement('div');
         backFace.classList.add('back-face');
         
         const img = document.createElement('img');
-        img.src = image; // Asignar la imagen al elemento <img>
+        img.src = image;
         img.alt = 'Card Image'; // Añadir un texto alternativo para accesibilidad
 
         backFace.appendChild(img);
@@ -56,16 +55,15 @@ function createGameBoard() {
 // Definir las rutas de los archivos de audio
 const flipCardSound = new Audio('sonido/mario-bros-jump.mp3');
 const matchFoundSound = new Audio('sonido/woohoo-text-sms.mp3');
-const gameCompleteSound1 = new Audio('victory-sonic.mp3');
-const gameCompleteSound2 = new Audio('victory-sonic.mp3'); // Cambia la ruta si es diferente
+const gameCompleteSound = new Audio('sonido/victory-sonic.mp3'); // Asegúrate de que la ruta sea correcta
 
 // Función para manejar el clic en una carta
 function handleCardClick() {
     if (boardLocked || this.classList.contains('flip')) return;
-    
+
     this.classList.add('flip');
     flippedCards.push(this);
-    flipCardSound.play(); // Reproducir sonido al descubrir una carta
+    flipCardSound.play();
 
     if (flippedCards.length === 2) {
         boardLocked = true;
@@ -76,18 +74,18 @@ function handleCardClick() {
 // Función para verificar si las cartas coinciden
 function checkForMatch() {
     const [card1, card2] = flippedCards;
-    
+
     if (card1.dataset.image === card2.dataset.image) {
         card1.removeEventListener('click', handleCardClick);
         card2.removeEventListener('click', handleCardClick);
-        matchFoundSound.play(); // Reproducir sonido al encontrar una coincidencia
+        matchFoundSound.play();
+        boardLocked = false; // Desbloquear el tablero aquí
         checkGameComplete();
     } else {
-        boardLocked = true;
         setTimeout(() => {
             card1.classList.remove('flip');
             card2.classList.remove('flip');
-            boardLocked = false;
+            boardLocked = false; // Desbloquear el tablero aquí
         }, 1000);
     }
     flippedCards = [];
@@ -97,23 +95,11 @@ function checkForMatch() {
 function checkGameComplete() {
     const allCards = document.querySelectorAll('.card');
     if ([...allCards].every(card => card.classList.contains('flip'))) {
-        // Lógica para elegir qué sonido reproducir
-        const condicionParaElegirSonido1 = true; // Define tu condición lógica aquí
-        if (condicionParaElegirSonido1) {
-            gameCompleteSound1.play(); // Reproducir primer sonido de juego completo
-        } else {
-            gameCompleteSound2.play(); // Reproducir segundo sonido de juego completo
-        }
-        // Mostrar un mensaje de felicitaciones después de que el juego se haya completado
-        setTimeout(() => alert('¡Felicidades, has ganado!'), 500);
+        gameCompleteSound.play();
     }
 }
 
 // Iniciar el juego al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
-    // Ocultar el encabezado y pie de página si se desea
-    document.getElementById('header').style.display = 'none';
-    document.getElementById('footer').style.display = 'none';
-
-    createGameBoard();
+    createGameBoard(); // Cargar el tablero del juego al iniciar
 });

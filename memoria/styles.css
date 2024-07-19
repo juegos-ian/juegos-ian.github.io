@@ -1,55 +1,59 @@
 /* Estilo general del cuerpo */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-image: url('imagenes/fondo.jpg');
+    background-size: cover; /* Esto hará que la imagen cubra toda la pantalla */
+    background-position: center; /* Esto centrará la imagen */
+    background-repeat: no-repeat; /* Esto evitará que la imagen se repita */
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Evitar desplazamiento */
-    height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
-    width: 100vw; /* Asegura que el cuerpo ocupe toda la anchura de la ventana */
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    /* Evita el desplazamiento en el contenedor del juego */
 }
 
-/* Estilo para el contenido en orientación horizontal */
-.landscape-only {
-    display: block; /* Asegura que el contenido se muestre en cualquier orientación */
-}
-
+/* Estilo del encabezado y pie de página */
 header, footer {
-    background-color: #333;
-    color: #fff;
+    background-color: none;
+    color: red;
     text-align: center;
     padding: 10px 0;
+    width: 100%;
 }
 
+/* Estilo del título */
 h1 {
     margin: 0;
 }
 
+/* Estilo principal */
 main {
     display: flex;
-    flex-direction: column; /* Coloca el contenido en una columna */
-    max-width: 100vw; /* Asegura que el contenido no exceda el ancho de la vista */
-    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    background-color: #fff;
+    background-color:none
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    box-sizing: border-box; /* Incluye padding y border en el ancho y alto total */
+    width: 100%;
+    height: calc(100vh - 80px); /* Ajustar para que no se superponga con header y footer */
+    overflow: auto;
+    box-sizing: border-box;
 }
 
+/* Estilo del tablero */
 .board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajusta el número de columnas según el ancho disponible */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 10px;
     margin-top: 20px;
-    justify-content: center; /* Centra las cartas en la vista */
+    justify-content: center;
 }
 
+/* Estilo de la carta */
 .card {
     width: 100%;
     height: 150px; /* Altura de cada carta */
@@ -64,10 +68,12 @@ main {
     position: relative;
 }
 
+/* Estilo de la carta volteada */
 .card.flip {
     transform: rotateY(180deg);
 }
 
+/* Estilo de las imágenes dentro de las cartas */
 .card img {
     width: 100%;
     height: 100%;
@@ -75,6 +81,7 @@ main {
     object-fit: contain; /* Ajustar la imagen manteniendo la relación de aspecto */
 }
 
+/* Estilo de las caras de la carta */
 .card .front-face, .card .back-face {
     position: absolute;
     width: 100%;
@@ -82,28 +89,49 @@ main {
     backface-visibility: hidden;
 }
 
+/* Estilo de la cara posterior de la carta */
 .card .back-face {
     transform: rotateY(180deg);
 }
 
+/* Estilo del pie de página */
 footer {
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
-/* Estilo específico para orientación horizontal */
-@media (orientation: landscape) {
-    .landscape-only {
-        display: block; /* Muestra el contenido en orientación horizontal */
-        /* Ajustar el diseño para la orientación horizontal */
-        height: 100vh; /* Asegura que el contenido ocupe toda la altura de la ventana */
+/* Estilos específicos para pantallas grandes (PC) */
+@media (min-width: 1200px) {
+    main {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 80vh; /* Ajuste para pantallas grandes */
+        width: 80vw; /* Ajuste para pantallas grandes */
     }
 
-    /* Opcional: Ajustar el diseño para mejorar la experiencia en orientación horizontal */
+    .board {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+}
+
+/* Estilos específicos para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
     main {
-        max-height: 100vh; /* Asegura que el contenido no exceda la altura de la vista */
+        height: 100vh; /* Ajuste para móviles */
+        width: 100vw; /* Ajuste para móviles */
         display: flex;
-        flex-direction: row; /* Coloca el contenido en una fila en lugar de columna */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .board {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
     }
 }
