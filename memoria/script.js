@@ -31,7 +31,7 @@ function createGameBoard() {
     cards.forEach((image, index) => {
         const card = document.createElement('div');
         card.classList.add('card');
-        card.dataset.image = image; // Usamos 'image' en lugar de 'symbol'
+        card.dataset.image = image;
         card.dataset.index = index;
 
         const frontFace = document.createElement('div');
@@ -55,7 +55,7 @@ function createGameBoard() {
 
 // Definir las rutas de los archivos de audio
 const flipCardSound = new Audio('sonido/mario-bros-jump.mp3');
-const matchFoundSound = new Audio('sonido/woohoo-text-sms.mp33');
+const matchFoundSound = new Audio('sonido/woohoo-text-sms.mp3');
 const gameCompleteSound1 = new Audio('victory-sonic.mp3');
 const gameCompleteSound2 = new Audio('victory-sonic.mp3'); // Cambia la ruta si es diferente
 
@@ -96,7 +96,7 @@ function checkForMatch() {
 // Función para verificar si se completó el juego
 function checkGameComplete() {
     const allCards = document.querySelectorAll('.card');
-    if ([...allCards].every(card => !card.classList.contains('flip'))) {
+    if ([...allCards].every(card => card.classList.contains('flip'))) {
         // Lógica para elegir qué sonido reproducir
         const condicionParaElegirSonido1 = true; // Define tu condición lógica aquí
         if (condicionParaElegirSonido1) {
@@ -104,12 +104,16 @@ function checkGameComplete() {
         } else {
             gameCompleteSound2.play(); // Reproducir segundo sonido de juego completo
         }
-        // Aquí puedes agregar otras acciones después de completar el juego
+        // Mostrar un mensaje de felicitaciones después de que el juego se haya completado
+        setTimeout(() => alert('¡Felicidades, has ganado!'), 500);
     }
 }
 
 // Iniciar el juego al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
-    const startButton = document.getElementById('start-game');
-    startButton.addEventListener('click', createGameBoard);
+    // Ocultar el encabezado y pie de página si se desea
+    document.getElementById('header').style.display = 'none';
+    document.getElementById('footer').style.display = 'none';
+
+    createGameBoard();
 });
