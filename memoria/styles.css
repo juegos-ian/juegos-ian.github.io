@@ -46,7 +46,7 @@ main {
 
 /* Estilo del tablero */
 .board {
-    display: flex; /* Cambiado a flexbox para alinear las cartas horizontalmente */
+    display: flex; /* Cambiado a flexbox para alinear las cartas horizontalmente en pantallas grandes */
     flex-wrap: wrap; /* Permite que las cartas se envuelvan a la siguiente fila si es necesario */
     gap: 10px; /* Espacio entre las cartas */
     margin-top: 20px;
@@ -137,7 +137,7 @@ footer {
     }
 
     .card {
-        width: 45%; /* Ajusta el tamaño de las cartas para que quepan dos por fila */
+        width: calc(50% - 10px); /* Ajusta el tamaño para que dos cartas caben en una fila, considerando el espacio entre ellas */
         height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
     }
 }
