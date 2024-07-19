@@ -46,16 +46,18 @@ main {
 
 /* Estilo del tablero */
 .board {
-    display: grid; /* Usar grid para pantallas grandes y medios */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajustar columnas automáticamente */
+    display: grid; /* Usar grid para alinear las cartas en una disposición vertical */
+    grid-template-columns: repeat(2, 1fr); /* Dos cartas por fila */
     gap: 10px; /* Espacio entre las cartas */
     margin-top: 20px;
     justify-content: center; /* Centra el tablero horizontalmente */
+    width: 100%; /* Asegura que el tablero use todo el ancho disponible */
+    max-width: 500px; /* Máximo ancho del tablero para evitar que se expanda demasiado */
 }
 
 /* Estilo de la carta */
 .card {
-    width: 100px; /* Tamaño de las cartas */
+    width: 100%; /* Ajusta el ancho de las cartas al tamaño de la celda del grid */
     height: 150px; /* Altura de cada carta */
     background-color: #f0f0f0;
     border-radius: 8px;
@@ -101,23 +103,6 @@ footer {
     width: 100%;
 }
 
-/* Estilos específicos para pantallas grandes (PC) */
-@media (min-width: 1200px) {
-    main {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        height: 80vh; /* Ajuste para pantallas grandes */
-        width: 80vw; /* Ajuste para pantallas grandes */
-    }
-
-    .board {
-        display: grid; /* Rehabilitar grid para pantallas grandes */
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajustar columnas automáticamente */
-        gap: 15px; /* Espacio entre las cartas */
-    }
-}
-
 /* Estilos específicos para pantallas pequeñas (móviles) */
 @media (max-width: 767px) {
     main {
@@ -127,14 +112,6 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-
-    .board {
-        display: grid; /* Usar grid para mantener un diseño vertical en móviles */
-        grid-template-columns: repeat(2, 1fr); /* Dos cartas por fila */
-        gap: 10px; /* Espacio entre las cartas */
-        width: 100%; /* Asegura que el tablero use todo el ancho disponible */
-        max-width: 500px; /* Máximo ancho del tablero para evitar que se expanda demasiado */
     }
 
     .card {
