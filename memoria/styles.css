@@ -35,7 +35,7 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color:none
+    background-color: none; /* Corregido el valor para background-color */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -46,16 +46,16 @@ main {
 
 /* Estilo del tablero */
 .board {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
+    display: flex; /* Cambiado a flexbox para alinear las cartas horizontalmente */
+    flex-wrap: wrap; /* Permite que las cartas se envuelvan a la siguiente fila si es necesario */
+    gap: 10px; /* Espacio entre las cartas */
     margin-top: 20px;
-    justify-content: center;
+    justify-content: center; /* Centra el tablero horizontalmente */
 }
 
 /* Estilo de la carta */
 .card {
-    width: 100%;
+    width: 100px; /* Tamaño de las cartas */
     height: 150px; /* Altura de cada carta */
     background-color: #f0f0f0;
     border-radius: 8px;
@@ -130,8 +130,14 @@ footer {
     }
 
     .board {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 10px;
+        display: flex; /* Usado para alinear las cartas horizontalmente */
+        flex-wrap: wrap; /* Permite que las cartas se envuelvan en múltiples filas si es necesario */
+        gap: 10px; /* Espacio entre las cartas */
+        justify-content: center; /* Centra las cartas horizontalmente */
+    }
+
+    .card {
+        width: 45%; /* Ajusta el tamaño de las cartas para que quepan dos por fila */
+        height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
     }
 }
