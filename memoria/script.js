@@ -35,7 +35,12 @@ function createGameBoard() {
 
         const frontFace = document.createElement('div');
         frontFace.classList.add('front-face');
-        frontFace.textContent = '🌟'; // Símbolo de cubierta de carta
+
+        // Añadir la imagen de fondo a la parte frontal de la carta
+        const frontImg = document.createElement('img');
+        frontImg.src = 'imagenes/imagen trasera de las cartas.jpg'; // Cambia esta ruta a la de tu imagen
+        frontImg.alt = 'Card Cover';
+        frontFace.appendChild(frontImg);
 
         const backFace = document.createElement('div');
         backFace.classList.add('back-face');
