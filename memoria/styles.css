@@ -49,7 +49,7 @@ main {
     display: grid; /* Usar grid para alinear las cartas en una disposición vertical */
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Dos cartas por fila con un tamaño mínimo */
     gap: 10px; /* Espacio entre las cartas */
-    margin-top: -10px; /* Reducir el margen superior para subir las cartas */
+    margin-top: -30px; /* Reducir el margen superior para subir las cartas */
     justify-content: center; /* Centra el tablero horizontalmente */
     width: 100%; /* Asegura que el tablero use todo el ancho disponible */
     max-width: 500px; /* Máximo ancho del tablero para evitar que se expanda demasiado */
