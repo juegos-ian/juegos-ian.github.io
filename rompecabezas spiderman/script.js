@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     const puzzles = [
-        { id: 'puzzle1', image: 'imagenes/20230822_192832.jpg' },
-        { id: 'puzzle2', image: 'imagenes/20231013_072700.jpg' },
-        { id: 'puzzle3', image: 'imagenes/IMG-20230919-WA0088.jpg' },
-        { id: 'puzzle4', image: 'imagenes/IMG-20231231-WA0017.jpg' },
-        { id: 'puzzle5', image: 'imagenes/20240622_194532.jpg' },
-        { id: 'puzzle6', image: 'imagenes/IMG-20240525-WA0002.jpg' }
+        { id: 'puzzle1', image: 'imagenes/1ae487ee5b47e7a457835023edf65e98.jpg' },
+        { id: 'puzzle2', image: 'imagenes/1cc2ba3ae8a3ac427742f8048108955d.jpg' },
+        { id: 'puzzle3', image: 'imagenes/032274ee6cd7e7b14de35d1e1723bc59.jpg' },
+        { id: 'puzzle4', image: 'imagenes/d959763f9ebc2e4cf0a62e430907e9ca.jpg' },
+        { id: 'puzzle5', image: 'imagenes/df54e1c7a6788dfa6a270d9526299509.jpg' },
+        { id: 'puzzle6', image: 'imagenes/e77524e64dc52a83bbfd966d64e6092b.jpg' }
     ];
 
     let currentPuzzleIndex = 0;
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             completionIndicator = document.createElement('div');
             completionIndicator.classList.add('completion-indicator');
             const img = document.createElement('img');
-            img.src = 'imagenes/retouch_2023122321223432-removebg-preview.png'; // Ruta relativa a la imagen de completado
+            img.src = 'imagenes/completado.png'; // Ruta relativa a la imagen de completado
             completionIndicator.appendChild(img);
             puzzleContainer.appendChild(completionIndicator);
         }

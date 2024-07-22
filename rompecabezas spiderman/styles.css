@@ -11,7 +11,7 @@ body, html {
     justify-content: center;
     background-color: #f0f0f0;
     font-family: 'Copperplate Gothic', sans-serif;
-    background-image: url('imagenes/IMG-20240113-WA0056.jpg');
+    background-image: url('imagenes/fondo.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -19,14 +19,14 @@ body, html {
 
 header, footer {
     text-align: center;
-    background-color: #333; /* Color de fondo del encabezado y pie de página */
+    background-color: red; /* Color de fondo del encabezado y pie de página */
     color: white;
     width: 100%;
     padding: 1rem;
 }
 
 h1 {
-    color: blue;
+    color: Blue;
     text-align: center;
 }
 

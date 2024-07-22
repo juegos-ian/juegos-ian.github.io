@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     const puzzles = [
-        { id: 'puzzle1', image: 'imagenes/20230822_192832.jpg' },
-        { id: 'puzzle2', image: 'imagenes/20231013_072700.jpg' },
-        { id: 'puzzle3', image: 'imagenes/IMG-20230919-WA0088.jpg' },
-        { id: 'puzzle4', image: 'imagenes/IMG-20231231-WA0017.jpg' },
-        { id: 'puzzle5', image: 'imagenes/20240622_194532.jpg' },
-        { id: 'puzzle6', image: 'imagenes/IMG-20240525-WA0002.jpg' }
+        { id: 'puzzle1', image: 'imagenes/imagen1.jpg' },
+        { id: 'puzzle2', image: 'imagenes/imagen2.jpg' },
+        { id: 'puzzle3', image: 'imagenes/imagen3.jpg' },
+        { id: 'puzzle4', image: 'imagenes/imagen4.jpg' },
+        { id: 'puzzle5', image: 'imagenes/imagen5.jpg' },
+        { id: 'puzzle6', image: 'imagenes/imagen6.jpg' }
     ];
 
     let currentPuzzleIndex = 0;
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             completionIndicator = document.createElement('div');
             completionIndicator.classList.add('completion-indicator');
             const img = document.createElement('img');
-            img.src = 'imagenes/retouch_2023122321223432-removebg-preview.png'; // Ruta relativa a la imagen de completado
+            img.src = 'imagenes/completado.png'; // Ruta relativa a la imagen de completado
             completionIndicator.appendChild(img);
             puzzleContainer.appendChild(completionIndicator);
         }
