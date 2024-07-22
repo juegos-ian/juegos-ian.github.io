@@ -1,7 +1,7 @@
 /* Estilo general del cuerpo */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('imagenes/fondo.jpg');
+    background-image: url('imagenes/fondo de memoria advengers.jpg');
     background-size: cover; /* Esto hará que la imagen cubra toda la pantalla */
     background-position: center; /* Esto centrará la imagen */
     background-repeat: no-repeat; /* Esto evitará que la imagen se repita */
@@ -19,7 +19,7 @@ header, footer {
     background-color: transparent;
     color: red;
     text-align: center;
-    padding: -10px 0;
+    padding: 10px 0;
     width: 100%;
 }
 
@@ -49,7 +49,7 @@ main {
     display: grid; /* Usar grid para alinear las cartas en una disposición vertical */
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Dos cartas por fila con un tamaño mínimo */
     gap: 10px; /* Espacio entre las cartas */
-    margin-top: -20px; /* Reducir el margen superior para subir las cartas */
+    margin-top: -10px; /* Reducir el margen superior para subir las cartas */
     justify-content: center; /* Centra el tablero horizontalmente */
     width: 100%; /* Asegura que el tablero use todo el ancho disponible */
     max-width: 500px; /* Máximo ancho del tablero para evitar que se expanda demasiado */
@@ -128,7 +128,7 @@ footer {
     }
 
     .card {
-        height: 200px; /* Ajusta la altura automáticamente para mantener la proporción */
+        height: 150px; /* Ajusta la altura automáticamente para mantener la proporción */
     }
 }
 
