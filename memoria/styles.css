@@ -128,7 +128,7 @@ footer {
     }
 
     .card {
-        height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+        height: 100px; /* Ajusta la altura automáticamente para mantener la proporción */
     }
 }
 
