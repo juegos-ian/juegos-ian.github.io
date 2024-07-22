@@ -42,12 +42,13 @@ main {
     height: calc(100vh - 80px); /* Ajustar para que no se superponga con header y footer */
     overflow: auto;
     box-sizing: border-box;
+    max-width: 100%;
 }
 
 /* Estilo del tablero */
 .board {
     display: grid; /* Usar grid para alinear las cartas en una disposición vertical */
-    grid-template-columns: repeat(2, 1fr); /* Dos cartas por fila */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Dos cartas por fila con un tamaño mínimo */
     gap: 10px; /* Espacio entre las cartas */
     margin-top: 20px;
     justify-content: center; /* Centra el tablero horizontalmente */
@@ -106,7 +107,7 @@ footer {
 /* Estilos específicos para pantallas pequeñas (móviles) */
 @media (max-width: 767px) {
     main {
-        height: 100vh; /* Ajuste para móviles */
+        height: calc(100vh - 60px); /* Ajuste para móviles, considerando un tamaño menor para el footer */
         width: 100vw; /* Ajuste para móviles */
         display: flex;
         flex-direction: column;
@@ -115,7 +116,6 @@ footer {
     }
 
     .card {
-        width: 100%; /* Ajusta el ancho de las cartas al tamaño de la celda del grid */
         height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
     }
 }
