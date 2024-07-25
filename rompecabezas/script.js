@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentPuzzleIndex = 0;
 
     puzzles.forEach(puzzle => {
-        createPuzzle(puzzle.id, puzzle.image);
+        createPuzzle(puzzle.id, puzzle.image, false);
     });
 
     window.resetPuzzle = function resetPuzzle(puzzleId) {
@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
             piece.remove(); // Eliminar todas las piezas del rompecabezas
         });
 
-        createPuzzle(puzzleId, puzzles.find(puzzle => puzzle.id === puzzleId).image); // Volver a crear el rompecabezas
+        createPuzzle(puzzleId, puzzles.find(puzzle => puzzle.id === puzzleId).image, true); // Volver a crear el rompecabezas desordenado
         removeCompletionIndicator(puzzleContainer); // Eliminar el indicador de completado si existe
     };
 
-    function createPuzzle(puzzleId, image) {
+    function createPuzzle(puzzleId, image, shuffle) {
         const puzzleContainer = document.getElementById(puzzleId);
         let pieces = [];
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pieces.push(piece);
         }
 
-        shuffleArray(pieces); // Mezclar las piezas
+        if (shuffle) shuffleArray(pieces); // Mezclar las piezas si se especifica
         pieces.forEach(piece => puzzleContainer.appendChild(piece)); // Agregar las piezas al contenedor
 
         pieces.forEach(piece => {
@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
             piece.addEventListener("touchend", touchEnd);
         });
     }
+
+    // ... (El resto de tu código permanece igual
+
+
+    // ... (resto del código, incluyendo funciones de arrastrar y soltar, y navegación
+
 
     function dragStart(e) {
         e.dataTransfer.setData("text/plain", e.target.id);

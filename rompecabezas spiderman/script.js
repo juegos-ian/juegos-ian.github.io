@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const puzzles = [
-        { id: 'puzzle1', image: 'imagenes/1ae487ee5b47e7a457835023edf65e98.jpg' },
+         { id: 'puzzle1', image: 'imagenes/1ae487ee5b47e7a457835023edf65e98.jpg' },
         { id: 'puzzle2', image: 'imagenes/1cc2ba3ae8a3ac427742f8048108955d.jpg' },
         { id: 'puzzle3', image: 'imagenes/032274ee6cd7e7b14de35d1e1723bc59.jpg' },
         { id: 'puzzle4', image: 'imagenes/d959763f9ebc2e4cf0a62e430907e9ca.jpg' },
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentPuzzleIndex = 0;
 
     puzzles.forEach(puzzle => {
-        createPuzzle(puzzle.id, puzzle.image);
+        createPuzzle(puzzle.id, puzzle.image, false);
     });
 
     window.resetPuzzle = function resetPuzzle(puzzleId) {
@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
             piece.remove(); // Eliminar todas las piezas del rompecabezas
         });
 
-        createPuzzle(puzzleId, puzzles.find(puzzle => puzzle.id === puzzleId).image); // Volver a crear el rompecabezas
+        createPuzzle(puzzleId, puzzles.find(puzzle => puzzle.id === puzzleId).image, true); // Volver a crear el rompecabezas desordenado
         removeCompletionIndicator(puzzleContainer); // Eliminar el indicador de completado si existe
     };
 
-    function createPuzzle(puzzleId, image) {
+    function createPuzzle(puzzleId, image, shuffle) {
         const puzzleContainer = document.getElementById(puzzleId);
         let pieces = [];
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pieces.push(piece);
         }
 
-        shuffleArray(pieces); // Mezclar las piezas
+        if (shuffle) shuffleArray(pieces); // Mezclar las piezas si se especifica
         pieces.forEach(piece => puzzleContainer.appendChild(piece)); // Agregar las piezas al contenedor
 
         pieces.forEach(piece => {
@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
             piece.addEventListener("touchend", touchEnd);
         });
     }
+
+    // ... (El resto de tu código permanece igual
+
+
+    // ... (resto del código, incluyendo funciones de arrastrar y soltar, y navegación
+
 
     function dragStart(e) {
         e.dataTransfer.setData("text/plain", e.target.id);

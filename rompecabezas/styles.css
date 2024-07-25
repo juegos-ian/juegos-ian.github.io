@@ -19,7 +19,7 @@ body, html {
 
 header, footer {
     text-align: center;
-    background-color: #333; /* Color de fondo del encabezado y pie de página */
+    background-color: #333;
     color: white;
     width: 100%;
     padding: 1rem;
@@ -42,20 +42,20 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centrar verticalmente el contenido */
+    justify-content: center;
     margin-bottom: 20px;
-    position: relative; /* Añadir posición relativa para el posicionamiento del botón */
-    text-align: center; /* Alinear el contenido del puzzle-wrapper */
+    position: relative;
+    text-align: center;
 }
 
 .puzzle-wrapper button {
-    margin-top: 10px; /* Ajustar el margen superior del botón */
+    margin-top: 10px;
 }
 
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
     .puzzle-wrapper button {
-        margin-top: 20px; /* Ajustar el margen superior del botón en dispositivos móviles */
+        margin-top: 20px;
     }
 }
 
@@ -65,16 +65,16 @@ h1 {
     grid-template-rows: repeat(5, 100px);
     gap: 3px;
     margin-bottom: 10px;
-    width: 410px;  /* Ajuste para mantener las piezas contenidas */
-    height: 510px; /* Ajuste para mantener las piezas contenidas */
-    border: 2px solid #ccc; /* Opcional: borde alrededor del contenedor */
+    width: 410px;
+    height: 510px;
+    border: 2px solid #ccc;
     position: relative; /* Permite posicionamiento relativo para el indicador de completado */
 }
 
 .puzzle-piece {
     width: 100px;
     height: 100px;
-    background-size: 400px 500px; /* Ajuste para mantener la imagen en la misma escala */
+    background-size: 400px 500px;
     background-position: center;
     cursor: grab;
     border: 1px solid #ccc;
@@ -82,7 +82,7 @@ h1 {
 }
 
 .puzzle-piece:active {
-    cursor: grab;
+    cursor: grabbing;
     transform: scale(1.1);
     z-index: 1000;
 }
@@ -95,8 +95,8 @@ button {
     background-color: #333;
     color: white;
     border-radius: 10px;
-    margin: 5px; /* Espacio entre los botones */
-    text-align: center; /* Añadido para centrar el texto */
+    margin: 5px;
+    text-align: center;
 }
 
 button:hover {
@@ -105,11 +105,11 @@ button:hover {
 
 .navigation {
     display: flex;
-    justify-content: space-between; /* Distribuye los botones al principio y al final */
-    align-items: flex-start; /* Centra verticalmente los botones */
+    justify-content: space-between;
+    align-items: flex-start;
     margin-top: -40px;
-    width: 100%; /* Ancho completo para cubrir la pantalla */
-    padding: 5px 5px; /* Ajustar el padding horizontal */
+    width: 100%;
+    padding: 5px 5px;
 }
 
 .nav-button {
@@ -120,17 +120,17 @@ button:hover {
     background-color: #333;
     color: white;
     border-radius: 10px;
-    display: flex; /* Ajusta el botón para contener la imagen */
-    align-items: center; /* Centra la imagen verticalmente */
-    margin-right: 17px; /* Ajusta el margen derecho según sea necesario */
+    display: flex;
+    align-items: center;
+    margin-right: 17px;
 }
 
 .nav-button img {
-    width: 40px; /* Ajusta el tamaño de la imagen según tu diseño */
-    height: auto; /* Permite que la altura se ajuste automáticamente al ancho definido */
+    width: 40px;
+    height: auto;
 }
 
-footer {
+.footer {
     margin-top: 20px;
     color: #666;
     text-align: center;
@@ -139,17 +139,22 @@ footer {
 /* Estilo para el indicador de completado */
 .completion-indicator {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px; /* Ajustar según el tamaño de la imagen del check */
-    height: 50px; /* Ajustar según el tamaño de la imagen del check */
-    top: calc(50% - 25px); /* Ajustar según el tamaño del rompecabezas */
-    left: calc(50% - 25px); /* Ajustar según el tamaño del rompecabezas */
+    z-index: 10; /* Asegúrate de que esté por encima de las piezas del rompecabezas */
+    pointer-events: none; /* Permite clics a través del indicador si es necesario */
 }
+    
 
 .completion-indicator img {
-    width: 200px; /* Ajustar el tamaño de la imagen del check */
-    height: 200px; /* Ajustar el tamaño de la imagen del check */
-    background-size: cover; /* Ajustar según necesidad */
+    max-width: 80%;
+    max-height: 80%;
+    width: 200px;
+    height: 200px;
+    object-fit: contain; /* Mantiene las proporciones de la imagen */
 }
