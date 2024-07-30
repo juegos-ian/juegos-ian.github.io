@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rompecabezas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <main>
+        <h1>Rompecabezas de Ian</h1>
+        <div id="puzzles-container">
+            <!-- Cada rompecabezas en una "página" separada -->
+            <div class="puzzle-wrapper" id="puzzle-page1">
+                <div class="puzzle-container" id="puzzle1"></div>
+                <button onclick="resetPuzzle('puzzle1')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page2" style="display:none;">
+                <div class="puzzle-container" id="puzzle2"></div>
+                <button onclick="resetPuzzle('puzzle2')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page3" style="display:none;">
+                <div class="puzzle-container" id="puzzle3"></div>
+                <button onclick="resetPuzzle('puzzle3')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page4" style="display:none;">
+                <div class="puzzle-container" id="puzzle4"></div>
+                <button onclick="resetPuzzle('puzzle4')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page5" style="display:none;">
+                <div class="puzzle-container" id="puzzle5"></div>
+                <button onclick="resetPuzzle('puzzle5')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page6" style="display:none;">
+                <div class="puzzle-container" id="puzzle6"></div>
+                <button onclick="resetPuzzle('puzzle6')">Reiniciar Rompecabezas</button>
+            </div>
+           <div class="puzzle-wrapper" id="puzzle-page7" style="display:none;">
+                <div class="puzzle-container" id="puzzle7"></div>
+                <button onclick="resetPuzzle('puzzle7')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page8" style="display:none;">
+                <div class="puzzle-container" id="puzzle8"></div>
+                <button onclick="resetPuzzle('puzzle8')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page9" style="display:none;">
+                <div class="puzzle-container" id="puzzle9"></div>
+                <button onclick="resetPuzzle('puzzle9')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page10" style="display:none;">
+                <div class="puzzle-container" id="puzzle10"></div>
+                <button onclick="resetPuzzle('puzzle10')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page11" style="display:none;">
+                <div class="puzzle-container" id="puzzle11"></div>
+                <button onclick="resetPuzzle('puzzle11')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page12" style="display:none;">
+                <div class="puzzle-container" id="puzzle12"></div>
+                <button onclick="resetPuzzle('puzzle12')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page13" style="display:none;">
+                <div class="puzzle-container" id="puzzle13"></div>
+                <button onclick="resetPuzzle('puzzle13')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page14" style="display:none;">
+                <div class="puzzle-container" id="puzzle14"></div>
+                <button onclick="resetPuzzle('puzzle14')">Reiniciar Rompecabezas</button>
+            </div>
+            <div class="puzzle-wrapper" id="puzzle-page15" style="display:none;">
+                <div class="puzzle-container" id="puzzle15"></div>
+                <button onclick="resetPuzzle('puzzle15')">Reiniciar Rompecabezas</button>
+            </div>
+
+
+
+        </div>
+        <div class="navigation">
+            <button onclick="prevPuzzle()" class="nav-button">
+                <img src="imagenes/klipartz.com.png" />
+            </button>
+            <button onclick="nextPuzzle()" class="nav-button">
+                <img src="imagenes/pngegg (3).png" />
+            </button>
+        </div>
+    </main>
+    
+    
+    <audio id="completion-sound">
+        <source src="sonidos/ringtones-batman-60s.mp3" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+    <script src="script.js"></script>
+</body>
+</html>
