@@ -1,0 +1,160 @@
+/* CSS General */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita el desplazamiento */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    font-family: 'Copperplate Gothic', sans-serif;
+    background-image: url('imagenes/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header, footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    padding: 1rem;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+#puzzles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.puzzle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.puzzle-wrapper button {
+    margin-top: 10px;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    .puzzle-wrapper button {
+        margin-top: 20px;
+    }
+}
+
+.puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(5, 100px);
+    gap: 3px;
+    margin-bottom: 10px;
+    width: 410px;
+    height: 510px;
+    border: 2px solid #ccc;
+    position: relative; /* Permite posicionamiento relativo para el indicador de completado */
+}
+
+.puzzle-piece {
+    width: 100px;
+    height: 100px;
+    background-size: 400px 500px;
+    background-position: center;
+    cursor: grab;
+    border: 1px solid #ccc;
+    transition: transform 0.2s;
+}
+
+.puzzle-piece:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+    z-index: 1000;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: blue;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: -40px;
+    width: 100%;
+    padding: 5px 5px;
+}
+
+.nav-button {
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 17px;
+}
+
+.nav-button img {
+    width: 40px;
+    height: auto;
+}
+
+.footer {
+    margin-top: 20px;
+    color: #666;
+    text-align: center;
+}
+
+/* Estilo para el indicador de completado */
+.completion-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Asegúrate de que esté por encima de las piezas del rompecabezas */
+    pointer-events: none; /* Permite clics a través del indicador si es necesario */
+}
+    
+
+.completion-indicator img {
+    max-width: 80%;
+    max-height: 80%;
+    width: 200px;
+    height: 200px;
+    object-fit: contain; /* Mantiene las proporciones de la imagen */
+}

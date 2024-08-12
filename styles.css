@@ -28,7 +28,7 @@ main {
 }
 
 .game-section {
-    width: 300px; /* Ancho fijo para cada sección de juego */
+    width: 150px; /* Ancho fijo para cada sección de juego */
     max-width: 100%; /* Ancho máximo para adaptarse a pantallas más pequeñas */
     padding: 20px;
     margin: 0 10px 20px; /* Espacio entre las secciones de juego */
