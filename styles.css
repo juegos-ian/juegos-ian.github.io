@@ -11,7 +11,6 @@ body, html {
 header {
     text-align: center;
     padding: 20px 0;
-    background-color: none; /* Reemplaza 'none' por un valor o elimínalo si no es necesario */
     color: #fff;
 }
 
@@ -24,18 +23,17 @@ header {
 
 main {
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: flex-start; /* Alinea los elementos al principio */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no caben en una sola línea */
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
     margin: 20px;
-    
 }
 
 .game-section {
-    width: 200px; /* Ancho del contenedor */
-    height: 200px; /* Altura del contenedor para hacerlo cuadrado */
-    padding: 10px 10px 20px; /* Espacio interior del contenedor */
-    margin: 40px; /* Espacio entre los contenedores */
+    width: 200px;
+    height: 200px;
+    padding: 10px 10px 20px;
+    margin: 40px;
     background-color: #fff;
     border-radius: 50px;
     text-align: center;
@@ -45,45 +43,41 @@ main {
 
 .game-section img {
     width: 71%;
-    height: 71%; /* Ajusta la altura de la imagen para llenar el contenedor */
-    object-fit: cover; /* Mantiene la proporción de la imagen y la recorta si es necesario */
+    height: 71%;
+    object-fit: cover;
     border-radius: 20px;
 }
 
+.game-section h2, .game-section p {
+    color: red;
+    margin: 0;
+}
+
 .game-section h2 {
-    color: red; /* Color del texto del título */
-    margin: 10px 0; /* Espacio arriba y abajo del título */
-    font-size: 15px; /* Tamaño de la fuente ajustable */
-    padding: 0; /* Sin relleno adicional */
+    margin: 10px 0;
+    font-size: 15px;
 }
 
 .game-section p {
-    color: red; /* Color del texto del párrafo */
-    margin: 0; /* Elimina el margen por defecto */
-    padding: 5px 0; /* Espacio vertical alrededor del texto */
-    font-size: 20px; /* Tamaño de la fuente ajustable */
+    padding: 5px 0;
+    font-size: 20px;
 }
 
 .play-button {
     position: absolute;
-    bottom: -70px; /* Ajusta este valor para mover el botón hacia arriba o abajo */
+    bottom: -70px;
     left: 50%;
     transform: translateX(-50%);
     padding: 5px 40px;
     background-color: #333;
     color: #fff;
-    text-decoration: none;
+    text-decoration: none; /* Elimina el subrayado */
     border-radius: 20px;
     transition: background-color 0.3s ease;
-    height: 30px; /* Ajusta la altura del botón según sea necesario */
-    min-width: 55px; /* Establece un ancho mínimo para asegurar que el texto quepa */
-    text-align: center; /* Asegura que el texto dentro del botón esté centrado */
-    line-height: 30px; /* Establece el line-height igual a la altura del botón para centrar el texto verticalmente */
-    text-align: center; /* Asegura que el texto dentro del botón esté centrado */
-    justify-content: center; /* Centra el texto horizontalmente */
-    align-items: center; /* Centra el texto verticalmente */
-    line-height: 30px; /* Establece el line-height igual a la altura del botón para centrar el texto verticalmente */
-}
+    height: 30px;
+    min-width: 55px;
+    line-height: 30px;
+    text-align: center;
 }
 
 .play-button:hover {
@@ -92,17 +86,20 @@ main {
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
-    
-       
+    main {
+        flex-direction: row; /* Cambia la dirección de los elementos a horizontal */
+        justify-content: flex-start; /* Alinea los contenedores al inicio */
+        overflow-x: auto; /* Permite que los contenedores se desplacen horizontalmente si no caben */
+        white-space: nowrap; /* Evita que los contenedores se envuelvan a la siguiente línea */
+    }
 
     .game-section {
         width: 120px; /* Ajusta el ancho en pantallas pequeñas */
         height: 120px; /* Ajusta la altura en pantallas pequeñas */
-      
+        margin: 10px; /* Ajusta el espacio entre los contenedores */
     }
 
     .play-button {
-        margin: 10px auto; /* Ajusta la alineación del botón en pantallas pequeñas */
         font-size: 12px; /* Tamaño de fuente ajustable */
     }
 }
