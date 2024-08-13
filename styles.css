@@ -92,8 +92,7 @@ main {
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
-    main {
-        flex-direction: row; /* Alinea los contenedores horizontalmente */
+    
        
 
     .game-section {
