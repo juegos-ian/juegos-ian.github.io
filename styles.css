@@ -37,20 +37,15 @@ main {
 }
 
 .game-section {
-    width: 90%; /* Usa un porcentaje para el ancho */
-    max-width:400px; /* Define un máximo para evitar que sea demasiado grande */
-    height: 200px;
-    padding:-10px 20px 20px;
-    margin: 40px;
+    width: 150px; /* Ancho del contenedor */
+    height: 150px; /* Altura del contenedor para hacerlo cuadrado */
+    padding: 10px 10px 20px; /* Espacio interior del contenedor */
+    margin: 40px; /* Espacio entre los contenedores */
     background-color: #fff;
-    border-radius:50px;
+    border-radius: 50px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
-      box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
-
-    
-
 }
 
 .game-section img {
