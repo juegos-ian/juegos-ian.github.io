@@ -90,6 +90,7 @@ main {
         flex-direction: row; /* Cambia la dirección de los elementos a horizontal */
         justify-content: flex-start; /* Alinea los contenedores al inicio */
         overflow-x: auto; /* Permite que los contenedores se desplacen horizontalmente si no caben */
+        overflow-y: hidden;
         white-space: nowrap; /* Evita que los contenedores se envuelvan a la siguiente línea */
     }
 
