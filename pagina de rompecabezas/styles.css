@@ -6,7 +6,7 @@ body, html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+   
     height: 100%;
     min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
 }
@@ -95,7 +95,7 @@ main {
     .game-section {
         width: 120px; /* Ajusta el ancho en pantallas pequeñas */
         height: 120px; /* Ajusta la altura en pantallas pequeñas */
-        margin: 10px; /* Ajusta el margen para pantallas más pequeñas */
+        margin: 20px; /* Ajusta el margen para pantallas más pequeñas */
     }
 
     .play-button {
