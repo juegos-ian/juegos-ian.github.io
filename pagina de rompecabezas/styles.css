@@ -6,10 +6,6 @@ body, html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100%;
-    min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
-    overflow: hidden;
-
 }
 
 header {
@@ -28,12 +24,10 @@ header {
 
 main {
     display: flex;
-    flex-direction: row; /* Asegura que los contenedores se dispongan en forma horizontal */
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: nowrap; /* Permite que los elementos se envuelvan cuando no caben en una sola línea */
-   width: 100%;
-    flex: 1;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: flex-start; /* Alinea los elementos al principio */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no caben en una sola línea */
+    margin: 20px;
 }
 
 .game-section {
