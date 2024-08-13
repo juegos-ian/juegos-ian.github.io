@@ -11,13 +11,13 @@ body, html {
 header {
     text-align: center;
     padding: 20px 0;
-    background-color: none;
+    background-color: none; /* Reemplaza 'none' por un valor o elimínalo si no es necesario */
     color: #fff;
 }
 
 .title-image {
     width: 80%;
-    max-width: 800px;
+    max-width: 400px;
     display: block;
     margin: 0 auto;
 }
@@ -28,6 +28,8 @@ main {
     align-items: flex-start; /* Alinea los elementos al principio */
     flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no caben en una sola línea */
     margin: 20px;
+    width: 100%; /* Asegura que el contenedor principal use todo el ancho disponible */
+    box-sizing: border-box; /* Incluye el padding y border en el ancho total */
 }
 
 .game-section {
@@ -46,8 +48,7 @@ main {
     width: 71%;
     height: 71%; /* Ajusta la altura de la imagen para llenar el contenedor */
     object-fit: cover; /* Mantiene la proporción de la imagen y la recorta si es necesario */
-    border-radius:20px;
-
+    border-radius: 20px;
 }
 
 .game-section h2 {
@@ -65,7 +66,6 @@ main {
 }
 
 .play-button {
-   
     position: absolute;
     bottom: -70px; /* Ajusta este valor para mover el botón hacia arriba o abajo */
     left: 50%;
@@ -79,16 +79,8 @@ main {
     height: 30px; /* Ajusta la altura del botón según sea necesario */
     min-width: 55px; /* Establece un ancho mínimo para asegurar que el texto quepa */
     text-align: center; /* Asegura que el texto dentro del botón esté centrado */
-    justify-content: center; /* Centra el texto horizontalmente */
-    align-items: center; /* Centra el texto verticalmente */
-     line-height: 30px; /* Establece el line-height igual a la altura del botón para centrar el texto verticalmente */
+    line-height: 30px; /* Establece el line-height igual a la altura del botón para centrar el texto verticalmente */
 }
-
-   
-
-
-
-    
 
 .play-button:hover {
     background-color: blue;
@@ -96,14 +88,15 @@ main {
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
-
     main {
         flex-direction: row; /* Alinea los contenedores horizontalmente */
         overflow-x: auto; /* Permite el desplazamiento horizontal si los contenedores son más anchos que la pantalla */
     }
+
     .game-section {
         width: 120px; /* Ajusta el ancho en pantallas pequeñas */
         height: 120px; /* Ajusta la altura en pantallas pequeñas */
+        margin: 10px; /* Ajusta el margen si es necesario */
     }
 
     .play-button {
