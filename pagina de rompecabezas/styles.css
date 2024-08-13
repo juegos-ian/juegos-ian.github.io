@@ -22,12 +22,15 @@ header {
     margin: 0 auto;
 }
 
-main {
+mmain {
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: flex-start; /* Alinea los elementos al principio */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no caben en una sola línea */
-    margin: 20px;
+    flex-direction: row; /* Asegura que los contenedores se dispongan en forma horizontal */
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    flex: 1;
+    
 }
 
 .game-section {
