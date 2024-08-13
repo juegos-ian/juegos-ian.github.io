@@ -39,21 +39,22 @@ main {
 .game-section {
     width: 150px; /* Ancho del contenedor */
     height: 150px; /* Altura del contenedor para hacerlo cuadrado */
-    padding: 10px 10px 20px; /* Espacio interior del contenedor */
-    margin: 40px; /* Espacio entre los contenedores */
+    padding: 10px;/* Espacio interior del contenedor */
+    margin: 20px; /* Espacio entre los contenedores */
     background-color: #fff;
     border-radius: 50px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
+
 }
 
 .game-section img {
-    width: 60%;
-
-    height: 60%;
-    object-fit: cover;
-    border-radius:10px;
+    width: 60%; /* Ajusta el ancho de la imagen dentro del contenedor */
+    height:60%; /* Mantiene la proporción de la imagen */
+    object-fit:cover; /* Asegura que la imagen cubra el contenedor sin distorsionar */
+    border-radius: 10px; /* Radio del borde de la imagen */
+    margin: 0;
 }
 
 .game-section h2 {
