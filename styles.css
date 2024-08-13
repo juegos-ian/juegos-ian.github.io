@@ -88,8 +88,8 @@ main {
 @media (max-width: 768px) {
     main {
         flex-direction: row; /* Asegura que los contenedores se dispongan horizontalmente */
-        flex-wrap: nowrap; /* Evita que los contenedores se envuelvan en la siguiente línea */
         
+        overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
         justify-content: flex-start; /* Alinea los contenedores al inicio */
     }
     .game-section {
