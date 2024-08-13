@@ -23,10 +23,11 @@ header {
 
 main {
     display: flex;
+    flex-direction: row; /* Asegura que los contenedores se dispongan en forma horizontal */
     justify-content: center;
     align-items: flex-start;
-    flex-wrap: wrap;
-    margin: 20px;
+    flex-wrap: nowrap;
+    
 }
 
 .game-section {
@@ -78,7 +79,6 @@ main {
     min-width: 55px;
     line-height: 30px;
     text-align: center;
-}
 
 .play-button:hover {
     background-color: blue;
@@ -86,12 +86,6 @@ main {
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
-    main {
-        flex-direction: row; /* Asegura que los contenedores se dispongan horizontalmente */
-        
-        overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
-        justify-content: flex-start; /* Alinea los contenedores al inicio */
-    }
     .game-section {
         width: 120px;
         height: 120px;
