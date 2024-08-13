@@ -6,6 +6,10 @@ body, html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 100%;
+    min-height: 150vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
+    
+
 }
 
 header {
@@ -22,15 +26,14 @@ header {
     margin: 0 auto;
 }
 
-mmain {
+main {
     display: flex;
     flex-direction: row; /* Asegura que los contenedores se dispongan en forma horizontal */
     justify-content: center;
     align-items: flex-start;
-    flex-wrap: nowrap;
-    width: 100%;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no caben en una sola línea */
+   width: 100%;
     flex: 1;
-    
 }
 
 .game-section {
