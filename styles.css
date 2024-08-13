@@ -94,8 +94,7 @@ main {
 @media (max-width: 768px) {
     main {
         flex-direction: row; /* Alinea los contenedores horizontalmente */
-        overflow-x: auto; /* Permite el desplazamiento horizontal si los contenedores son más anchos que la pantalla */
-    }
+       
 
     .game-section {
         width: 120px; /* Ajusta el ancho en pantallas pequeñas */
