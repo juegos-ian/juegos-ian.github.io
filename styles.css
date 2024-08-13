@@ -87,20 +87,17 @@ main {
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
     main {
-        flex-direction: row; /* Cambia la dirección de los elementos a horizontal */
+        flex-direction: row; /* Asegura que los contenedores se dispongan horizontalmente */
+        flex-wrap: nowrap; /* Evita que los contenedores se envuelvan en la siguiente línea */
+        overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
         justify-content: flex-start; /* Alinea los contenedores al inicio */
-        overflow-x: auto; /* Permite que los contenedores se desplacen horizontalmente si no caben */
-        overflow-y: hidden;
-        white-space: nowrap; /* Evita que los contenedores se envuelvan a la siguiente línea */
     }
-
     .game-section {
-        width: 120px; /* Ajusta el ancho en pantallas pequeñas */
-        height: 120px; /* Ajusta la altura en pantallas pequeñas */
-        margin: 10px; /* Ajusta el espacio entre los contenedores */
+        width: 120px;
+        height: 120px;
     }
 
     .play-button {
-        font-size: 12px; /* Tamaño de fuente ajustable */
+        font-size: 12px;
     }
 }
