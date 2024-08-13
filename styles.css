@@ -56,21 +56,19 @@ main {
     border-radius:10px;
 }
 
-.game-section h2, .game-section p {
-    color: red;
-    margin: 0;
-}
-
 .game-section h2 {
-    margin: 10px 0;
-    font-size:20px;
+    color: red; /* Color del texto del título */
+    margin: 10px 0; /* Espacio arriba y abajo del título */
+    font-size: 19px; /* Tamaño de la fuente ajustable */
+    padding: 0; /* Sin relleno adicional */
 }
 
 .game-section p {
-    padding: 5px 0;
-    font-size: 20px;
+    color: #333; /* Color del texto del párrafo */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 5px 0; /* Espacio vertical alrededor del texto */
+    font-size: 14px; /* Tamaño de la fuente ajustable */
 }
-
 .play-button {
     position: absolute;
     bottom: -70px;
