@@ -28,7 +28,10 @@ main {
     align-items: flex-start; /* Alinea los elementos al principio */
     flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no caben en una sola línea */
     margin: 20px;
+    width: 100%; /* Asegura que el contenedor principal use todo el ancho disponible */
+    box-sizing: border-box; /* Incluye el padding y border en el ancho total */
 }
+
 
 .game-section {
     width: 200px; /* Ancho del contenedor */
@@ -96,6 +99,10 @@ main {
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
+     main {
+        flex-direction: row; /* Alinea los contenedores horizontalmente */
+        overflow-x: auto; /* Permite el desplazamiento horizontal si los contenedores son más anchos que la pantalla */
+    }
     .game-section {
         width: 120px; /* Ajusta el ancho en pantallas pequeñas */
         height: 120px; /* Ajusta la altura en pantallas pequeñas */
