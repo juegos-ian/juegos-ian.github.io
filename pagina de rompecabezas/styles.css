@@ -25,13 +25,11 @@ header {
 main {
     display: flex;
     flex-direction: row; /* Alinea los contenedores horizontalmente */
-    flex-wrap: wrap; /* Permite que los contenedores se envuelvan si no caben en una fila */
+    flex-wrap: wrap; /* Permite que los contenedores se envuelvan a una nueva fila si es necesario */
     justify-content: center; /* Centra los contenedores horizontalmente */
-    align-items: flex-start;
     margin: 20px;
-    width: calc(100% - 40px); /* Ajusta el ancho para evitar el desbordamiento */
+    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
 }
-
 .game-section {
     width: 150px; /* Ancho del contenedor */
     height: 150px; /* Altura del contenedor para hacerlo cuadrado */
@@ -98,11 +96,7 @@ main {
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
-    main {
-        flex-direction: row; /* Alinea horizontalmente incluso en pantallas pequeñas */
-        flex-wrap: wrap; /* Envuelve los contenedores si no caben en una fila */
-        justify-content: center; /* Asegura que los contenedores se centren horizontalmente */
-    }
+
 
 
     .game-section {
