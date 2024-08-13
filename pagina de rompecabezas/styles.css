@@ -71,7 +71,7 @@ main {
 
 .play-button {
     position: absolute;
-    bottom: -70px; /* Ajusta este valor para mover el botón hacia arriba o abajo */
+    bottom: -45px; /* Ajusta este valor para mover el botón hacia arriba o abajo */
     left: 50%;
     transform: translateX(-50%);
     padding: 5px 40px;
