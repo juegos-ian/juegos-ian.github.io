@@ -37,7 +37,7 @@ main {
 }
 
 .game-section {
-    width: 20%; /* Usa un porcentaje para el ancho */
+    width: 90%; /* Usa un porcentaje para el ancho */
     max-width:400px; /* Define un máximo para evitar que sea demasiado grande */
     height: 200px;
     padding:-10px 20px 20px;
