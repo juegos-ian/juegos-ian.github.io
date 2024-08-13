@@ -28,8 +28,7 @@ main {
     align-items: flex-start; /* Alinea los elementos al principio */
     flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no caben en una sola línea */
     margin: 20px;
-    width: 100%; /* Asegura que el contenedor principal use todo el ancho disponible */
-    box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+    
 }
 
 .game-section {
@@ -80,6 +79,11 @@ main {
     min-width: 55px; /* Establece un ancho mínimo para asegurar que el texto quepa */
     text-align: center; /* Asegura que el texto dentro del botón esté centrado */
     line-height: 30px; /* Establece el line-height igual a la altura del botón para centrar el texto verticalmente */
+    text-align: center; /* Asegura que el texto dentro del botón esté centrado */
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    line-height: 30px; /* Establece el line-height igual a la altura del botón para centrar el texto verticalmente */
+}
 }
 
 .play-button:hover {
@@ -96,7 +100,7 @@ main {
     .game-section {
         width: 120px; /* Ajusta el ancho en pantallas pequeñas */
         height: 120px; /* Ajusta la altura en pantallas pequeñas */
-        margin: 10px; /* Ajusta el margen si es necesario */
+      
     }
 
     .play-button {
