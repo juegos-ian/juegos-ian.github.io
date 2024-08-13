@@ -6,6 +6,7 @@ body, html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100%;
     min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
 }
@@ -28,6 +29,7 @@ main {
     flex-direction: row; /* Alinea los contenedores horizontalmente */
     flex-wrap: wrap; /* Permite que los contenedores se envuelvan a una nueva fila si es necesario */
     justify-content: center; /* Centra los contenedores horizontalmente */
+    padding-top: 50px; 
     margin: 20px;
     width: calc(100% - 40px); /* Ajusta el ancho para evitar desbordamientos */
     box-sizing: border-box; /* Incluye padding y borde en el ancho total */
@@ -37,7 +39,7 @@ main {
     width: 150px; /* Ancho del contenedor */
     height: 150px; /* Altura del contenedor para hacerlo cuadrado */
     padding: 10px 10px 20px; /* Espacio interior del contenedor */
-    margin: 10px; /* Espacio entre los contenedores */
+    margin: 50px; /* Espacio entre los contenedores */
     background-color: #fff;
     border-radius: 50px;
     text-align: center;
