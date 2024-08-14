@@ -14,7 +14,7 @@ header {
     color: #fff;
 }
 
-title-image {
+.title-image {
     width: 80%;
     max-width: 300px;
     display: block;
