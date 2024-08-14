@@ -7,8 +7,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
    
-    height: 100%;
-    min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
+    h
 }
 
 header {
@@ -29,7 +28,7 @@ main {
     flex-direction: row; /* Alinea los contenedores horizontalmente */
     flex-wrap: wrap; /* Permite que los contenedores se envuelvan a una nueva fila si es necesario */
     justify-content: center; /* Centra los contenedores horizontalmente */
-    padding-top: 50px; 
+    padding-top: 160px; 
     margin: 20px;
     width: calc(100% - 40px); /* Ajusta el ancho para evitar desbordamientos */
     box-sizing: border-box; /* Incluye padding y borde en el ancho total */
@@ -38,7 +37,7 @@ main {
 .game-section {
     width: 150px; /* Ancho del contenedor */
     height: 150px; /* Altura del contenedor para hacerlo cuadrado */
-    padding: 10px 10px 20px; /* Espacio interior del contenedor */
+    padding: 5px 5px 10px; /* Espacio interior del contenedor */
     margin: 50px; /* Espacio entre los contenedores */
     background-color: #fff;
     border-radius: 50px;
@@ -49,10 +48,10 @@ main {
 }
 
 .game-section img {
-    width: 71%;
+    width: 80%;
     height: 71%; /* Ajusta la altura de la imagen para llenar el contenedor */
     object-fit: cover; /* Mantiene la proporción de la imagen y la recorta si es necesario */
-    border-radius: 50px;
+    border-radius: 30px;
 }
 
 .game-section h2 {
@@ -71,17 +70,17 @@ main {
 
 .play-button {
     position: absolute;
-    bottom: -45px; /* Ajusta este valor para mover el botón hacia arriba o abajo */
+    bottom: -33px; /* Ajusta este valor para mover el botón hacia arriba o abajo */
     left: 50%;
     transform: translateX(-50%);
-    padding: 5px 40px;
+    padding: 1px 40px;
     background-color: #333;
     color: #fff;
     text-decoration: none;
     border-radius: 20px;
     transition: background-color 0.3s ease;
-    height: 30px; /* Ajusta la altura del botón según sea necesario */
-    min-width: 55px; /* Establece un ancho mínimo para asegurar que el texto quepa */
+    height: 25px; /* Ajusta la altura del botón según sea necesario */
+    min-width: 45px; /* Establece un ancho mínimo para asegurar que el texto quepa */
     text-align: center; /* Asegura que el texto dentro del botón esté centrado */
     line-height: 30px; /* Establece el line-height igual a la altura del botón para centrar el texto verticalmente */
 }
