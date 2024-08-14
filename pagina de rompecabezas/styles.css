@@ -28,7 +28,7 @@ main {
     flex-direction: row; /* Alinea los contenedores horizontalmente */
     flex-wrap: wrap; /* Permite que los contenedores se envuelvan a una nueva fila si es necesario */
     justify-content: center; /* Centra los contenedores horizontalmente */
-    padding-top: 160px; 
+    padding-top:15px; 
     margin: 20px;
     width: calc(100% - 40px); /* Ajusta el ancho para evitar desbordamientos */
     box-sizing: border-box; /* Incluye padding y borde en el ancho total */
