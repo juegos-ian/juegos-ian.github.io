@@ -36,6 +36,11 @@ main {
     
 }
 
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
 .game-section {
     width: 150px; /* Ancho del contenedor */
     height: 150px; /* Altura del contenedor para hacerlo cuadrado */
