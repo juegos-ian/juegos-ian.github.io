@@ -10,99 +10,94 @@ body, html {
 
 header {
     text-align: center;
-    padding: 20px 0;
-    background-color: none;
+    padding: 0px 0;
     color: #fff;
 }
 
-.title-image {
+title-image {
     width: 80%;
-    max-width: 400px;
+    max-width: 300px;
     display: block;
     margin: 0 auto;
 }
 
+
 main {
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: flex-start; /* Alinea los elementos al principio */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no caben en una sola línea */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 15px;
     margin: 20px;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .game-section {
-    width: 150px; /* Ancho del contenedor */
-    height: 150px; /* Altura del contenedor para hacerlo cuadrado */
-    padding: 10px 10px 20px; /* Espacio interior del contenedor */
-    margin: 40px; /* Espacio entre los contenedores */
+    width: 150px;
+    height: 150px;
+    padding: 5px 5px 10px;
+    margin: 50px;
     background-color: #fff;
     border-radius: 50px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
 .game-section img {
-    width: 71%;
-    height: 71%; /* Ajusta la altura de la imagen para llenar el contenedor */
-    object-fit: cover; /* Mantiene la proporción de la imagen y la recorta si es necesario */
-    border-radius:50px;
-
+    width: 90%;
+    height: 65%;
+    object-fit: cover;
+    border-radius: 30px;
 }
 
 .game-section h2 {
-    color: #333; /* Color del texto del título */
-    margin: 10px 0; /* Espacio arriba y abajo del título */
-    font-size: 14px; /* Tamaño de la fuente ajustable */
-    padding: 0; /* Sin relleno adicional */
+    color: #333;
+    margin: 10px 0;
+    font-size: 14px;
+    padding: 0;
 }
 
-.game-section p {
-    color: #333; /* Color del texto del párrafo */
-    margin: 0; /* Elimina el margen por defecto */
-    padding: 5px 0; /* Espacio vertical alrededor del texto */
-    font-size: 14px; /* Tamaño de la fuente ajustable */
-}
 
-.play-button {
-   
+
+ .play-button {
     position: absolute;
-    bottom: -70px; /* Ajusta este valor para mover el botón hacia arriba o abajo */
+    bottom: -33px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 5px 40px;
+    padding: 1px 40px;
     background-color: #333;
     color: #fff;
-    text-decoration: none;
     border-radius: 20px;
     transition: background-color 0.3s ease;
-    height: 30px; /* Ajusta la altura del botón según sea necesario */
-    min-width: 55px; /* Establece un ancho mínimo para asegurar que el texto quepa */
-    text-align: center; /* Asegura que el texto dentro del botón esté centrado */
-    justify-content: center; /* Centra el texto horizontalmente */
-    align-items: center; /* Centra el texto verticalmente */
-     line-height: 30px; /* Establece el line-height igual a la altura del botón para centrar el texto verticalmente */
+    height: 25px;
+    min-width: 60px;
+    text-align: center;
+    line-height: 25px;
 }
 
    
-
-
-
-    
-
 .play-button:hover {
     background-color: blue;
 }
 
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
+/@media (max-width: 768px) {
     .game-section {
-        width: 120px; /* Ajusta el ancho en pantallas pequeñas */
-        height: 120px; /* Ajusta la altura en pantallas pequeñas */
+        width: 120px;
+        height: 120px;
+        margin: 20px;
     }
 
     .play-button {
-        margin: 10px auto; /* Ajusta la alineación del botón en pantallas pequeñas */
-        font-size: 12px; /* Tamaño de fuente ajustable */
+        font-size: 12px;
     }
 }
