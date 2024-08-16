@@ -1,7 +1,7 @@
 html, body {
     height: 100%; /* Asegura que html y body ocupen toda la altura del viewport */
     margin: 0; /* Elimina el margen por defecto */
-    
+    overflow: hidden; /* Evita el desplazamiento de la pantalla */
 }
 
 body {
@@ -11,7 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh; /* Ocupa el 100% de la altura del viewport */
-    margin: -30%; /* Elimina el margen por defecto */
+    margin: 0; /* Elimina el margen por defecto */
     padding: 0; /* Asegúrate de que no haya relleno adicional */
     background-image: url("imagenes/image.png");
     background-repeat: no-repeat;
@@ -19,32 +19,32 @@ body {
     background-position: center; /* Centra la imagen en el área visible */
 }
 
-
 .title-image {
     width: 80%; /* Ajusta el ancho al 80% del contenedor */
     max-width: 400px; /* Limita el ancho máximo a 400px */
     display: block; /* Asegura que la imagen se muestre como un bloque */
     margin: 0 auto; /* Centra la imagen horizontalmente */
     position: relative; /* Permite ajustes de posición relativos */
-    top:180px; /* Ajusta la imagen hacia arriba desde su posición normal */
+    top: 20px; /* Ajusta la imagen hacia abajo desde su posición normal */
     padding: 0;
 }
 
-
 #game {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 1fr); /* Usa fracciones para que se ajuste al ancho disponible */
+    grid-template-rows: repeat(3, 1fr);
     gap: 5px;
+    width: 300px; /* Asegura que el contenedor tenga un ancho fijo adecuado */
+    height: 300px; /* Asegura que el contenedor tenga una altura fija adecuada */
     position: relative;
-    z-index: 1
+    z-index: 1;
 }
 
 .cell {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size:80px;
+    font-size: 2em; /* Ajusta el tamaño de la fuente para que se ajuste mejor */
     font-weight: bold;
     background-color: white;
     border: 2px solid #333;
@@ -67,28 +67,27 @@ body {
     background-color: red;
     z-index: 5;
     line-height: 10%;
-    
 }
 
 .horizontal {
-    width: 315px;
+    width: 100%; /* Ajusta el ancho al 100% del contenedor del juego */
     height: 5px;
 }
 
 .vertical {
     width: 5px;
-    height: 315px;
+    height: 100%; /* Ajusta la altura al 100% del contenedor del juego */
 }
 
 .diagonal-1 {
     width: 5px;
-    height: 445px;
+    height: 100%; /* Ajusta la altura al 100% del contenedor del juego */
     transform: rotate(45deg);
 }
 
 .diagonal-2 {
     width: 5px;
-    height: 445px;
+    height: 100%; /* Ajusta la altura al 100% del contenedor del juego */
     transform: rotate(-45deg);
 }
 
@@ -99,10 +98,13 @@ body {
     }
 
     #game {
-        grid-template-columns: repeat(3, 60px); /* Ajusta aún más el tamaño de las celdas */
-        grid-template-rows: repeat(3, 60px);
+        width: 180px; /* Ajusta el ancho del contenedor del juego para pantallas más pequeñas */
+        height: 180px; /* Ajusta la altura del contenedor del juego para pantallas más pequeñas */
+        grid-template-columns: repeat(3, 1fr); /* Usa fracciones para ajustar al ancho disponible */
+        grid-template-rows: repeat(3, 1fr);
     }
 
     .cell {
-        font-size: 18px; /* Ajusta el tamaño de la fuente para pantallas muy pequeñas */
+        font-size: 1.5em; /* Ajusta el tamaño de la fuente para pantallas muy pequeñas */
     }
+}
