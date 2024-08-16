@@ -1,0 +1,108 @@
+html, body {
+    height: 100%; /* Asegura que html y body ocupen toda la altura del viewport */
+    margin: 0; /* Elimina el margen por defecto */
+    
+}
+
+body {
+    font-family: Verdana, sans-serif; /* Asegura una fuente de respaldo si Verdana no está disponible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ocupa el 100% de la altura del viewport */
+    margin: -30%; /* Elimina el margen por defecto */
+    padding: 0; /* Asegúrate de que no haya relleno adicional */
+    background-image: url("imagenes/image.png");
+    background-repeat: no-repeat;
+    background-size: cover; /* Asegura que la imagen cubra toda el área */
+    background-position: center; /* Centra la imagen en el área visible */
+}
+
+
+.title-image {
+    width: 80%; /* Ajusta el ancho al 80% del contenedor */
+    max-width: 400px; /* Limita el ancho máximo a 400px */
+    display: block; /* Asegura que la imagen se muestre como un bloque */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    position: relative; /* Permite ajustes de posición relativos */
+    top:180px; /* Ajusta la imagen hacia arriba desde su posición normal */
+    padding: 0;
+}
+
+
+#game {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    position: relative;
+    z-index: 1
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:80px;
+    font-weight: bold;
+    background-color: white;
+    border: 2px solid #333;
+    cursor: pointer;
+    z-index: 5;
+}
+
+#reset {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: black; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Elimina el borde predeterminado */
+}
+
+.line {
+    position: absolute;
+    background-color: red;
+    z-index: 5;
+    line-height: 10%;
+    
+}
+
+.horizontal {
+    width: 315px;
+    height: 5px;
+}
+
+.vertical {
+    width: 5px;
+    height: 315px;
+}
+
+.diagonal-1 {
+    width: 5px;
+    height: 445px;
+    transform: rotate(45deg);
+}
+
+.diagonal-2 {
+    width: 5px;
+    height: 445px;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 480px) {
+    .title-image {
+        top: 0; /* Ajusta la posición de la imagen de título para pantallas aún más pequeñas */
+        width: 100%; /* Asegura que la imagen de título se ajuste completamente al ancho del contenedor */
+    }
+
+    #game {
+        grid-template-columns: repeat(3, 60px); /* Ajusta aún más el tamaño de las celdas */
+        grid-template-rows: repeat(3, 60px);
+    }
+
+    .cell {
+        font-size: 18px; /* Ajusta el tamaño de la fuente para pantallas muy pequeñas */
+    }
