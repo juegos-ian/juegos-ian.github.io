@@ -1,34 +1,41 @@
 html, body {
-    height: 100%; /* Asegura que html y body ocupen toda la altura del viewport */
+    height: 100%; /* Ocupa toda la altura del viewport */
     margin: 0; /* Elimina el margen por defecto */
-
-
+    padding: 0; /* Elimina el relleno por defecto */
+    overflow: hidden; /* Evita el desplazamiento */
 }
 
+
 body {
-    font-family: Verdana, sans-serif; /* Asegura una fuente de respaldo si Verdana no está disponible */
+    font-family: Verdana, sans-serif; /* Asegura una fuente de respaldo si Verdana no estÃ¡ disponible */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh; /* Ocupa el 100% de la altura del viewport */
-    margin: -30%; /* Elimina el margen por defecto */
-    padding: 0; /* Asegúrate de que no haya relleno adicional */
+    
+    padding: 0; /* AsegÃºrate de que no haya relleno adicional */
     background-image: url("imagenes/image.png");
     background-repeat: no-repeat;
-    background-size: cover; /* Asegura que la imagen cubra toda el área */
-    background-position: center; /* Centra la imagen en el área visible */
+    background-size: cover; /* Asegura que la imagen cubra toda el Ã¡rea */
+    background-position: center; /* Centra la imagen en el Ã¡rea visible */
+    background-attachment: fixed;
+    position: relative;
+    
+
+
 }
 
 
 .title-image {
     width: 80%; /* Ajusta el ancho al 80% del contenedor */
-    max-width: 400px; /* Limita el ancho máximo a 400px */
+    max-width: 400px; /* Limita el ancho mÃ¡ximo a 400px */
     display: block; /* Asegura que la imagen se muestre como un bloque */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-    position: relative; /* Permite ajustes de posición relativos */
-    top:180px; /* Ajusta la imagen hacia arriba desde su posición normal */
+    margin: 0; /* Centra la imagen horizontalmente */
+    position: relative; /* Permite ajustes de posiciÃ³n relativos */
+    top:190px; /* Ajusta la imagen hacia arriba desde su posiciÃ³n normal */
     padding: 0;
+    margin-bottom: -450px;
 }
 
 
@@ -38,8 +45,10 @@ body {
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 5px;
-    width: 315px; /* Ajusta al tamaño total del tablero */
-    height: 315px; /* Ajusta al tamaño total del tablero */
+    width: 315px; /* Ajusta al tamaÃ±o total del tablero */
+    height: 315px; /* Ajusta al tamaÃ±o total del tablero */
+    margin: 60%;
+    margin-bottom: auto;
 }
 
 .line {
@@ -67,21 +76,21 @@ body {
 .diagonal-1,
 .diagonal-2 {
     position: absolute;
-    width: 5px; /* Grosor de la línea */
-    background-color: red; /* Color de la línea */
+    width: 5px; /* Grosor de la lÃ­nea */
+    background-color: red; /* Color de la lÃ­nea */
     top: 0;
     left: 0;
-    transform-origin: left; /* Punto de origen para la rotación */
+    transform-origin: left; /* Punto de origen para la rotaciÃ³n */
 }
 
 .diagonal-1 {
     position: absolute;
-    width: 5px; /* Grosor de la línea */
+    width: 5px; /* Grosor de la lÃ­nea */
     height:130%; /* Ajusta para cubrir la altura completa del tablero */
-    background-color: red; /* Color de la línea */
-    transform: translate(-890%, 3%) rotate(-45deg); /* Rotación de 45 grados */
-    transform-origin: top left; /* Punto de origen para la rotación */
-    z-index: 50; /* Asegura que la línea esté al frente */
+    background-color: red; /* Color de la lÃ­nea */
+    transform: translate(-890%, 3%) rotate(-45deg); /* RotaciÃ³n de 45 grados */
+    transform-origin: top left; /* Punto de origen para la rotaciÃ³n */
+    z-index: 50; /* Asegura que la lÃ­nea estÃ© al frente */
 
     
 
@@ -89,12 +98,12 @@ body {
 
 .diagonal-2 {
     position: absolute;
-    width: 5px; /* Grosor de la línea */
+    width: 5px; /* Grosor de la lÃ­nea */
     height: 130%; /* Ajusta para cubrir la altura completa del tablero */
-    background-color: red; /* Color de la línea */
-    transform: translate(6000%, 3%) rotate(45deg); /* Rotación de 45 grados en la dirección opuesta */
-    transform-origin: top right; /* Punto de origen para la rotación */
-    z-index: 50; /* Asegura que la línea esté al frente */
+    background-color: red; /* Color de la lÃ­nea */
+    transform: translate(6000%, 3%) rotate(45deg); /* RotaciÃ³n de 45 grados en la direcciÃ³n opuesta */
+    transform-origin: top right; /* Punto de origen para la rotaciÃ³n */
+    z-index: 50; /* Asegura que la lÃ­nea estÃ© al frente */
 }
 
 
@@ -112,43 +121,58 @@ body {
 }
 
 #reset {
-    margin-top: 20px;
-    padding: 12px 24px; /* Tamaño del botón con más relleno */
-    font-size: 18px; /* Tamaño de la fuente del texto */
+    position: fixed; /* Permite que el botÃ³n permanezca en una posiciÃ³n fija en el viewport */
+    bottom: 20px; /* Ajusta la distancia desde el borde inferior del viewport */
+    left: 52%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta la posiciÃ³n horizontal para centrarlo */
+    padding: 12px 24px; /* TamaÃ±o del botÃ³n con mÃ¡s relleno */
+    font-size: 18px; /* TamaÃ±o de la fuente del texto */
     font-weight: bold; /* Negrita para el texto */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botÃ³n */
     background-color: green; /* Color de fondo oscuro */
     color: #fff; /* Color del texto blanco */
     border: none; /* Elimina el borde predeterminado */
     border-radius: 50px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    z-index: 1000; /* Asegura que el botÃ³n estÃ© por encima de otros elementos */
 }
 
-/* Efecto hover para el botón */
+    
+
+/* Efecto hover para el botÃ³n */
 #reset:hover {
     background-color: blue; /* Color de fondo al pasar el cursor */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el cursor */
 }
 
-/* Efecto focus para el botón (cuando el botón recibe el foco) */
+/* Efecto focus para el botÃ³n (cuando el botÃ³n recibe el foco) */
 #reset:focus {
     outline: none; /* Elimina el borde de enfoque predeterminado */
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra blanca alrededor del botón al enfocarse */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra blanca alrededor del botÃ³n al enfocarse */
 }
 
 
 @media (max-width: 480px) {
     .title-image {
-        top: 0; /* Ajusta la posición de la imagen de título para pantallas aún más pequeñas */
-        width: 100%; /* Asegura que la imagen de título se ajuste completamente al ancho del contenedor */
+        top: 0; /* Ajusta la posiciÃ³n del tÃ­tulo */
+        width: 100%; /* Asegura que la imagen de tÃ­tulo se ajuste al ancho */
     }
 
     #game {
-        grid-template-columns: repeat(3, 60px); /* Ajusta aún más el tamaño de las celdas */
+        grid-template-columns: repeat(3, 60px); /* Reduce el tamaÃ±o de las celdas */
         grid-template-rows: repeat(3, 60px);
+        width: 180px; /* Ajusta el tamaÃ±o del tablero */
+        height: 180px;
     }
 
     .cell {
-        font-size: 18px; /* Ajusta el tamaño de la fuente para pantallas muy pequeñas */
+        font-size: 18px; /* Ajusta el tamaÃ±o de la fuente */
     }
+
+    #reset {
+        bottom: 230px; /* Ajusta la distancia del botÃ³n desde el borde inferior */
+        font-size: 16px; /* Ajusta el tamaÃ±o de la fuente del botÃ³n */
+        padding: 10px 20px; /* Ajusta el tamaÃ±o del botÃ³n */
+    }
+}
