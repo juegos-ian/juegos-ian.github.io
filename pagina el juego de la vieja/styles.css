@@ -29,7 +29,7 @@ body {
 
 .title-image {
     width: 80%; /* Ajusta el ancho al 80% del contenedor */
-    max-width: 400px; /* Limita el ancho mÃ¡ximo a 400px */
+    max-width: 250px; /* Limita el ancho mÃ¡ximo a 400px */
     display: block; /* Asegura que la imagen se muestre como un bloque */
     margin: 0; /* Centra la imagen horizontalmente */
     position: relative; /* Permite ajustes de posiciÃ³n relativos */
@@ -47,7 +47,7 @@ body {
     gap: 5px;
     width: 315px; /* Ajusta al tamaÃ±o total del tablero */
     height: 315px; /* Ajusta al tamaÃ±o total del tablero */
-    margin: 60%;
+    margin: 75%;
     margin-bottom: auto;
 }
 
@@ -58,6 +58,7 @@ body {
 }
 
 .horizontal {
+    position: absolute;
     width: 98%; /* Abarca todo el ancho del tablero */
     height: 5px;
     top: 50%; /* Centra verticalmente */
@@ -66,9 +67,10 @@ body {
 }
 
 .vertical {
+    position: absolute;
     width: 5px;
     height: 100%; /* Abarca toda la altura del tablero */
-    top: 0;
+    top: 50;
     left: 50%; /* Centra horizontalmente */
     transform: translateX(-50%); /* Ajusta el centro horizontal */
 }
@@ -171,7 +173,7 @@ body {
     }
 
     #reset {
-        bottom: 230px; /* Ajusta la distancia del botÃ³n desde el borde inferior */
+        bottom: 145px; /* Ajusta la distancia del botÃ³n desde el borde inferior */
         font-size: 16px; /* Ajusta el tamaÃ±o de la fuente del botÃ³n */
         padding: 10px 20px; /* Ajusta el tamaÃ±o del botÃ³n */
     }
