@@ -68,22 +68,48 @@ function checkWin() {
 function drawWinLine({ condition, index }) {
     const [a, b, c] = condition;
 
-    if (index < 3) { // Línea horizontal
-        winLine.className = 'line horizontal';
-        winLine.style.top = `${(a < 3 ? 50 : (a < 6 ? 155 : 260))}px`;
-        winLine.style.left = '0px';
-    } else if (index < 6) { // Línea vertical
-        winLine.className = 'line vertical';
-        winLine.style.left = `${(a === 0 || a === 3 || a === 6 ? 50 : (a === 1 || a === 4 || a === 7 ? 155 : 260))}px`;
-        winLine.style.top = '0px';
-    } else if (index === 6) { // Línea diagonal de arriba-izquierda a abajo-derecha
-        winLine.className = 'line diagonal-1';
-        winLine.style.left = '50px';
-        winLine.style.top = '0px';
-    } else if (index === 7) { // Línea diagonal de abajo-izquierda a arriba-derecha
-        winLine.className = 'line diagonal-2';
-        winLine.style.right = '50px';
-        winLine.style.top = '0px';
+    // Tamaño de cada celda
+    const cellSize = cells[0].offsetWidth;
+
+    // Coordenadas del tablero
+    const boardRect = document.getElementById('game').getBoundingClientRect();
+
+    winLine.style.position = 'absolute';
+    winLine.style.zIndex = '50';
+
+    switch(index) {
+        case 0: // Línea horizontal 1
+        case 1: // Línea horizontal 2
+        case 2: // Línea horizontal 3
+            winLine.className = 'line horizontal';
+            winLine.style.width = `${cellSize * 3}px`; // Ajusta el ancho para cubrir todas las celdas
+            winLine.style.height = '5px'; // Grosor de la línea
+            winLine.style.top = `${cells[a].getBoundingClientRect().top - boardRect.top + (cellSize / 2)}px`;
+            winLine.style.left = `${cells[0].getBoundingClientRect().left - boardRect.left}px`;
+            break;
+        case 3: // Línea vertical 1
+        case 4: // Línea vertical 2
+        case 5: // Línea vertical 3
+            winLine.className = 'line vertical';
+            winLine.style.width = '5px'; // Grosor de la línea
+            winLine.style.height = `${cellSize * 3}px`; // Ajusta la altura para cubrir todas las celdas
+            winLine.style.top = `${cells[0].getBoundingClientRect().top - boardRect.top}px`;
+            winLine.style.left = `${cells[a].getBoundingClientRect().left - boardRect.left + (cellSize / 2)}px`;
+            break;
+        case 6: // Línea diagonal de arriba-izquierda a abajo-derecha
+            winLine.className = 'line diagonal-1';
+            winLine.style.width = `${cellSize * Math.sqrt(2)}px`; // Ajusta el tamaño para cubrir la diagonal
+            winLine.style.height = '5px'; // Grosor de la línea
+            winLine.style.top = `${cells[0].getBoundingClientRect().top - boardRect.top}px`;
+            winLine.style.left = `${cells[0].getBoundingClientRect().left - boardRect.left}px`;
+            break;
+        case 7: // Línea diagonal de abajo-izquierda a arriba-derecha
+            winLine.className = 'line diagonal-2';
+            winLine.style.width = `${cellSize * Math.sqrt(2)}px`; // Ajusta el tamaño para cubrir la diagonal
+            winLine.style.height = '5px'; // Grosor de la línea
+            winLine.style.top = `${cells[2].getBoundingClientRect().top - boardRect.top}px`;
+            winLine.style.left = `${cells[2].getBoundingClientRect().left - boardRect.left}px`;
+            break;
     }
 }
 
@@ -96,7 +122,8 @@ function resetGame() {
     winLine.className = 'line'; // Oculta la línea ganadora
     winLine.style.top = '';
     winLine.style.left = '';
-    winLine.style.right = '';
+    winLine.style.width = '';
+    winLine.style.height = '';
 }
 
 // Añade los event listeners para las celdas y el botón de reinicio

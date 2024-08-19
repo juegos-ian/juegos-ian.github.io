@@ -59,7 +59,7 @@ body {
 
 .horizontal {
     position: absolute;
-    width: 98%; /* Abarca todo el ancho del tablero */
+    width: 100%; /* Abarca todo el ancho del tablero */
     height: 5px;
     top: 50%; /* Centra verticalmente */
     left: 0;
@@ -70,7 +70,7 @@ body {
     position: absolute;
     width: 5px;
     height: 100%; /* Abarca toda la altura del tablero */
-    top: 50;
+    top: 0;
     left: 50%; /* Centra horizontalmente */
     transform: translateX(-50%); /* Ajusta el centro horizontal */
 }
@@ -78,35 +78,28 @@ body {
 .diagonal-1,
 .diagonal-2 {
     position: absolute;
-    width: 5px; /* Grosor de la lÃ­nea */
-    background-color: red; /* Color de la lÃ­nea */
-    top: 0;
-    left: 0;
-    transform-origin: left; /* Punto de origen para la rotaciÃ³n */
+    width: 5px; /* Grosor de la línea */
+    background-color: red; /* Color de la línea */
+    height: 100%; /* Ajusta para cubrir la altura completa del tablero */
+    transform-origin: center center; /* Centro para la rotación */
 }
 
 .diagonal-1 {
-    position: absolute;
-    width: 5px; /* Grosor de la lÃ­nea */
-    height:130%; /* Ajusta para cubrir la altura completa del tablero */
-    background-color: red; /* Color de la lÃ­nea */
-    transform: translate(-890%, 3%) rotate(-45deg); /* RotaciÃ³n de 45 grados */
-    transform-origin: top left; /* Punto de origen para la rotaciÃ³n */
-    z-index: 50; /* Asegura que la lÃ­nea estÃ© al frente */
-
-    
-
+    transform: rotate(45deg); /* Rotación de -45 grados */
+    width: 140%; /* Ajusta el tamaño para cubrir la diagonal */
+    height: 5px; /* Grosor de la línea */
+    top: 0; /* Ajusta la posición vertical */
+    left: 0; /* Ajusta la posición horizontal */
 }
 
 .diagonal-2 {
-    position: absolute;
-    width: 5px; /* Grosor de la lÃ­nea */
-    height: 130%; /* Ajusta para cubrir la altura completa del tablero */
-    background-color: red; /* Color de la lÃ­nea */
-    transform: translate(6000%, 3%) rotate(45deg); /* RotaciÃ³n de 45 grados en la direcciÃ³n opuesta */
-    transform-origin: top right; /* Punto de origen para la rotaciÃ³n */
-    z-index: 50; /* Asegura que la lÃ­nea estÃ© al frente */
+    transform: rotate(-45deg); /* Rotación de 45 grados */
+    width: 140%; /* Ajusta el tamaño para cubrir la diagonal */
+    height: 5px; /* Grosor de la línea */
+    top: 0; /* Ajusta la posición vertical */
+    left: 0; /* Ajusta la posición horizontal */
 }
+
 
 
 
