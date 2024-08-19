@@ -42,10 +42,10 @@ a {
     color: inherit;
 }
 .game-section {
-    width: 150px; /* Ancho del contenedor */
-    height: 150px; /* Altura del contenedor para hacerlo cuadrado */
+    width: 100px; /* Ancho del contenedor */
+    height: 100px; /* Altura del contenedor para hacerlo cuadrado */
     padding: 10px;/* Espacio interior del contenedor */
-    margin: 20px; /* Espacio entre los contenedores */
+    margin: 10px; /* Espacio entre los contenedores */
     background-color: #fff;
     border-radius: 50px;
     text-align: center;
@@ -55,8 +55,8 @@ a {
 }
 
 .game-section img {
-    width: 60%; /* Ajusta el ancho de la imagen dentro del contenedor */
-    height:60%; /* Mantiene la proporción de la imagen */
+    width: 75%; /* Ajusta el ancho de la imagen dentro del contenedor */
+    height:50%; /* Mantiene la proporción de la imagen */
     object-fit:cover; /* Asegura que la imagen cubra el contenedor sin distorsionar */
     border-radius: 10px; /* Radio del borde de la imagen */
     margin: 0;
@@ -65,7 +65,7 @@ a {
 .game-section h2 {
     color: red; /* Color del texto del título */
     margin: 10px 0; /* Espacio arriba y abajo del título */
-    font-size: 19px; /* Tamaño de la fuente ajustable */
+    font-size: 13px; /* Tamaño de la fuente ajustable */
     padding: 0; /* Sin relleno adicional */
 }
 
@@ -73,21 +73,21 @@ a {
     color: #333; /* Color del texto del párrafo */
     margin: 0; /* Elimina el margen por defecto */
     padding: 5px 0; /* Espacio vertical alrededor del texto */
-    font-size: 14px; /* Tamaño de la fuente ajustable */
+    font-size: 25px; /* Tamaño de la fuente ajustable */
 }
 .play-button {
     position: absolute;
-    bottom: -70px;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 5px 40px;
+    padding: 5px 20px;
     background-color: #333;
     color: #fff;
     text-decoration: none; /* Elimina el subrayado */
     border-radius: 20px;
     transition: background-color 0.3s ease;
     height: 30px;
-    min-width: 55px;
+    min-width: 20px;
     line-height: 30px;
     text-align: center;
 

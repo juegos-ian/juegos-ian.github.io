@@ -1,7 +1,8 @@
 html, body {
     height: 100%; /* Asegura que html y body ocupen toda la altura del viewport */
     margin: 0; /* Elimina el margen por defecto */
-    overflow: hidden; /* Evita el desplazamiento de la pantalla */
+
+
 }
 
 body {
@@ -11,7 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh; /* Ocupa el 100% de la altura del viewport */
-    margin: 0; /* Elimina el margen por defecto */
+    margin: -30%; /* Elimina el margen por defecto */
     padding: 0; /* Asegúrate de que no haya relleno adicional */
     background-image: url("imagenes/image.png");
     background-repeat: no-repeat;
@@ -19,32 +20,90 @@ body {
     background-position: center; /* Centra la imagen en el área visible */
 }
 
+
 .title-image {
     width: 80%; /* Ajusta el ancho al 80% del contenedor */
     max-width: 400px; /* Limita el ancho máximo a 400px */
     display: block; /* Asegura que la imagen se muestre como un bloque */
     margin: 0 auto; /* Centra la imagen horizontalmente */
     position: relative; /* Permite ajustes de posición relativos */
-    top: 20px; /* Ajusta la imagen hacia abajo desde su posición normal */
+    top:180px; /* Ajusta la imagen hacia arriba desde su posición normal */
     padding: 0;
 }
 
+
 #game {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Usa fracciones para que se ajuste al ancho disponible */
-    grid-template-rows: repeat(3, 1fr);
-    gap: 5px;
-    width: 300px; /* Asegura que el contenedor tenga un ancho fijo adecuado */
-    height: 300px; /* Asegura que el contenedor tenga una altura fija adecuada */
     position: relative;
-    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    width: 315px; /* Ajusta al tamaño total del tablero */
+    height: 315px; /* Ajusta al tamaño total del tablero */
 }
+
+.line {
+    position: absolute;
+    background-color: red;
+    z-index: 50;
+}
+
+.horizontal {
+    width: 98%; /* Abarca todo el ancho del tablero */
+    height: 5px;
+    top: 50%; /* Centra verticalmente */
+    left: 0;
+    transform: translateY(-50%); /* Ajusta el centro vertical */
+}
+
+.vertical {
+    width: 5px;
+    height: 100%; /* Abarca toda la altura del tablero */
+    top: 0;
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta el centro horizontal */
+}
+
+.diagonal-1,
+.diagonal-2 {
+    position: absolute;
+    width: 5px; /* Grosor de la línea */
+    background-color: red; /* Color de la línea */
+    top: 0;
+    left: 0;
+    transform-origin: left; /* Punto de origen para la rotación */
+}
+
+.diagonal-1 {
+    position: absolute;
+    width: 5px; /* Grosor de la línea */
+    height:130%; /* Ajusta para cubrir la altura completa del tablero */
+    background-color: red; /* Color de la línea */
+    transform: translate(-890%, 3%) rotate(-45deg); /* Rotación de 45 grados */
+    transform-origin: top left; /* Punto de origen para la rotación */
+    z-index: 50; /* Asegura que la línea esté al frente */
+
+    
+
+}
+
+.diagonal-2 {
+    position: absolute;
+    width: 5px; /* Grosor de la línea */
+    height: 130%; /* Ajusta para cubrir la altura completa del tablero */
+    background-color: red; /* Color de la línea */
+    transform: translate(6000%, 3%) rotate(45deg); /* Rotación de 45 grados en la dirección opuesta */
+    transform-origin: top right; /* Punto de origen para la rotación */
+    z-index: 50; /* Asegura que la línea esté al frente */
+}
+
+
 
 .cell {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2em; /* Ajusta el tamaño de la fuente para que se ajuste mejor */
+    font-size:80px;
     font-weight: bold;
     background-color: white;
     border: 2px solid #333;
@@ -54,42 +113,30 @@ body {
 
 #reset {
     margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: black; /* Color de fondo del botón */
-    color: white; /* Color del texto del botón */
+    padding: 12px 24px; /* Tamaño del botón con más relleno */
+    font-size: 18px; /* Tamaño de la fuente del texto */
+    font-weight: bold; /* Negrita para el texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    background-color: green; /* Color de fondo oscuro */
+    color: #fff; /* Color del texto blanco */
     border: none; /* Elimina el borde predeterminado */
+    border-radius: 50px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
 }
 
-.line {
-    position: absolute;
-    background-color: red;
-    z-index: 5;
-    line-height: 10%;
+/* Efecto hover para el botón */
+#reset:hover {
+    background-color: blue; /* Color de fondo al pasar el cursor */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el cursor */
 }
 
-.horizontal {
-    width: 100%; /* Ajusta el ancho al 100% del contenedor del juego */
-    height: 5px;
+/* Efecto focus para el botón (cuando el botón recibe el foco) */
+#reset:focus {
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra blanca alrededor del botón al enfocarse */
 }
 
-.vertical {
-    width: 5px;
-    height: 100%; /* Ajusta la altura al 100% del contenedor del juego */
-}
-
-.diagonal-1 {
-    width: 5px;
-    height: 100%; /* Ajusta la altura al 100% del contenedor del juego */
-    transform: rotate(45deg);
-}
-
-.diagonal-2 {
-    width: 5px;
-    height: 100%; /* Ajusta la altura al 100% del contenedor del juego */
-    transform: rotate(-45deg);
-}
 
 @media (max-width: 480px) {
     .title-image {
@@ -98,13 +145,10 @@ body {
     }
 
     #game {
-        width: 180px; /* Ajusta el ancho del contenedor del juego para pantallas más pequeñas */
-        height: 180px; /* Ajusta la altura del contenedor del juego para pantallas más pequeñas */
-        grid-template-columns: repeat(3, 1fr); /* Usa fracciones para ajustar al ancho disponible */
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 60px); /* Ajusta aún más el tamaño de las celdas */
+        grid-template-rows: repeat(3, 60px);
     }
 
     .cell {
-        font-size: 1.5em; /* Ajusta el tamaño de la fuente para pantallas muy pequeñas */
+        font-size: 18px; /* Ajusta el tamaño de la fuente para pantallas muy pequeñas */
     }
-}
