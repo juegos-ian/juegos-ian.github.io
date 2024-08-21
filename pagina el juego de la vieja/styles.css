@@ -173,6 +173,26 @@ body {
 }
 
 
+
+
+#win-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+#win-image img {
+    width: 300px; /* Ajusta el tamaño según sea necesario */
+    border: 5px solid gold; /* Opcional: Agrega un borde para resaltar la imagen */
+}
+
+.hidden {
+    display: none; /* Oculta el elemento */
+}
+
+
 @media (max-width: 480px) {
     .line.horizontal {
         height: 3px; /* Grosor de la línea horizontal */
@@ -261,7 +281,7 @@ body {
     }
 
     #reset {
-        bottom: 150px; /* Ajusta la distancia del botÃ³n desde el borde inferior */
+        bottom: 120px; /* Ajusta la distancia del botÃ³n desde el borde inferior */
         font-size: 16px; /* Ajusta el tamaÃ±o de la fuente del botÃ³n */
         padding: 10px 20px; /* Ajusta el tamaÃ±o del botÃ³n */
         background-color: #388E3C;
@@ -274,4 +294,15 @@ body {
         
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Ajusta la sombra de enfoque */
     }
+
+     #win-image {
+        top: 40%; /* Ajusta la posición vertical */
+        left: 50%;
+        transform: translate(-50%, -40%); /* Ajusta la posición vertical para pantallas pequeñas */
+    }
+
+    #win-image img {
+        width: 200px; /* Ajusta el tamaño para pantallas pequeñas */
+    }
+
 }
