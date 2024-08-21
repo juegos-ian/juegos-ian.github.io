@@ -29,13 +29,13 @@ body {
 
 .title-image {
     width: 80%; /* Ajusta el ancho al 80% del contenedor */
-    max-width: 250px; /* Limita el ancho mÃ¡ximo a 400px */
+    max-width: 300px; /* Limita el ancho mÃ¡ximo a 400px */
     display: block; /* Asegura que la imagen se muestre como un bloque */
     margin: 0; /* Centra la imagen horizontalmente */
     position: relative; /* Permite ajustes de posiciÃ³n relativos */
     top:190px; /* Ajusta la imagen hacia arriba desde su posiciÃ³n normal */
     padding: 0;
-    margin-bottom: -450px;
+    margin-bottom: -460px;
 }
 
 
@@ -49,11 +49,12 @@ body {
     height: 315px; /* Ajusta al tamaÃ±o total del tablero */
     margin: 75%;
     margin-bottom: auto;
+    
 }
 
 .line {
     position: absolute;
-    background-color: red;
+    background-color:black;
     z-index: 50;
 }
 
@@ -63,7 +64,7 @@ body {
     height: 5px;
     top: 50%; /* Centra verticalmente */
     left: 0;
-    transform: translateY(-50%); /* Ajusta el centro vertical */
+    transform: translateY(-40%); /* Ajusta el centro vertical */
 }
 
 .vertical {
@@ -79,25 +80,33 @@ body {
 .diagonal-2 {
     position: absolute;
     width: 5px; /* Grosor de la línea */
-    background-color: red; /* Color de la línea */
+    background-color: black; /* Color de la línea */
     height: 100%; /* Ajusta para cubrir la altura completa del tablero */
     transform-origin: center center; /* Centro para la rotación */
 }
 
 .diagonal-1 {
-    transform: rotate(45deg); /* Rotación de -45 grados */
-    width: 140%; /* Ajusta el tamaño para cubrir la diagonal */
-    height: 5px; /* Grosor de la línea */
-    top: 0; /* Ajusta la posición vertical */
-    left: 0; /* Ajusta la posición horizontal */
+    position: absolute;
+    width: 5px;
+    height: 425px; /* Asegura que cubra toda la diagonal */
+    background-color: black;
+    transform: rotate(45deg);
+    transform-origin: top left;
+    top: -50px; /* Asegura que la línea comience fuera del borde */
+    left: 0;
+    z-index: 50;
 }
 
 .diagonal-2 {
-    transform: rotate(-45deg); /* Rotación de 45 grados */
-    width: 140%; /* Ajusta el tamaño para cubrir la diagonal */
-    height: 5px; /* Grosor de la línea */
-    top: 0; /* Ajusta la posición vertical */
-    left: 0; /* Ajusta la posición horizontal */
+    position: absolute;
+    width: 5px;
+    height: 425px; /* Asegura que cubra toda la diagonal */
+    background-color: black;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+    top: -50px; /* Asegura que la línea comience fuera del borde */
+    right: 0;
+    z-index: 50;
 }
 
 
@@ -107,18 +116,34 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size:80px;
+    font-size: 80px; /* Tamaño de la fuente */
     font-weight: bold;
-    background-color: white;
-    border: 2px solid #333;
-    cursor: pointer;
+    background-color: #f9f9f9; /* Color de fondo suave */
+    border: 2px solid red; /* Borde gris oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre la celda */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
     z-index: 5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
+
+/* Efecto hover para las celdas */
+.cell:hover {
+    background-color: #e0e0e0; /* Color de fondo al pasar el cursor */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el cursor */
+}
+
+/* Efecto active para las celdas (cuando se hace clic) */
+.cell:active {
+    background-color:red; /* Color de fondo cuando se hace clic */
+    transform: scale(0.95); /* Reduce ligeramente el tamaño al hacer clic */
+}
+
 
 #reset {
     position: fixed; /* Permite que el botÃ³n permanezca en una posiciÃ³n fija en el viewport */
     bottom: 20px; /* Ajusta la distancia desde el borde inferior del viewport */
-    left: 52%; /* Centra horizontalmente */
+    left: 49%; /* Centra horizontalmente */
     transform: translateX(-50%); /* Ajusta la posiciÃ³n horizontal para centrarlo */
     padding: 12px 24px; /* TamaÃ±o del botÃ³n con mÃ¡s relleno */
     font-size: 18px; /* TamaÃ±o de la fuente del texto */
@@ -149,25 +174,104 @@ body {
 
 
 @media (max-width: 480px) {
+    .line.horizontal {
+        height: 3px; /* Grosor de la línea horizontal */
+        width: calc(100% + 10px); /* Ajusta el ancho para cubrir el tablero completo */
+        position: absolute;
+        top: 50%; /* Centra verticalmente */
+        left: 50%;
+        transform: translateY(1.%) scaleX(1.1); /* Escala el ancho */
+    }
+
+    .line.vertical {
+        width: 3px; /* Grosor de la línea vertical */
+        height: calc(100% + 10px); /* Ajusta la altura para cubrir el tablero completo */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) scaleY(1.1); /* Escala la altura */
+    }
+
+    .line.diagonal-1,
+    .line.diagonal-2 {
+        height: 2px; /* Grosor de la línea diagonal */
+        width: 100vw; /* Ancho extendido para cubrir toda la pantalla */
+        position: absolute;
+        transform-origin: center center; /* Centro para la rotación */
+    }
+
+    .line.diagonal-1 {
+        transform: rotate(45deg) scaleX(2.9) scaleY(1) translateY(39px) translateX(48px); /* Rotación, escala, y ajuste de posición */
+        top: -50%; /* Ajusta la posición vertical para abarcar el tablero */
+        left: -50%;
+    }
+
+    .line.diagonal-2 {
+        transform: rotate(-45deg) scaleX(2.9) scaleY(1) translateY(18px) translateX(-55px); /* Rotación, escala, y ajuste de posición */
+        top: -50%; /* Ajusta la posición vertical para abarcar el tablero */
+        left: -50%;
+        
+    }
+
+
+  
     .title-image {
         top: 0; /* Ajusta la posiciÃ³n del tÃ­tulo */
         width: 100%; /* Asegura que la imagen de tÃ­tulo se ajuste al ancho */
+        transform: translateY(-300px);
+        
     }
-
+   
     #game {
-        grid-template-columns: repeat(3, 60px); /* Reduce el tamaÃ±o de las celdas */
-        grid-template-rows: repeat(3, 60px);
-        width: 180px; /* Ajusta el tamaÃ±o del tablero */
-        height: 180px;
+        
+           display: grid;
+  
+           grid-template-columns: repeat(3, 77px); /* Tamaño de las celdas en vista móvil */
+     
+           grid-template-rows: repeat(3, 80px);
+     
+           gap: 5px; /* Espacio entre las celdas */
+    
+           width: 244px; /* Tamaño total del tablero ajustado para incluir el gap */
+     
+           height: 252px; /* Tamaño total del tablero ajustado para incluir el gap */
+      
+           margin: 0 auto; /* Centra el tablero horizontalmente */
+      
+           position: relative; /* Necesario para el pseudo-elemento si lo usas */
+     
+           z-index: 2; /* Asegura que el tablero esté por encima del borde */
+      
+           border: 1px solid #333; /* Línea alrededor del tablero, más gruesa */
+       
+           box-sizing: border-box; /* Asegura que el borde no afecte el tamaño del contenedor */
+   
+           box-shadow: 0 0 0 4px blue;
+           background-clip: padding-box;
+           border-radius: 16px;
+    
     }
+   
 
     .cell {
-        font-size: 18px; /* Ajusta el tamaÃ±o de la fuente */
+        font-size: px; /* Ajusta el tamaÃ±o de la fuente */
+        color: #d32f2f; 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        font-family: 'Lobster', cursive;
     }
 
     #reset {
-        bottom: 145px; /* Ajusta la distancia del botÃ³n desde el borde inferior */
+        bottom: 150px; /* Ajusta la distancia del botÃ³n desde el borde inferior */
         font-size: 16px; /* Ajusta el tamaÃ±o de la fuente del botÃ³n */
         padding: 10px 20px; /* Ajusta el tamaÃ±o del botÃ³n */
+        background-color: #388E3C;
+    }
+    #reset:hover {
+       
+    background-color: #2C6B2F; /* Cambia el color de fondo al pasar el cursor */
+    }
+    #reset:focus {
+        
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Ajusta la sombra de enfoque */
     }
 }

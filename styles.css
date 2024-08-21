@@ -45,7 +45,7 @@ a {
     width: 100px; /* Ancho del contenedor */
     height: 100px; /* Altura del contenedor para hacerlo cuadrado */
     padding: 10px;/* Espacio interior del contenedor */
-    margin: 7px; /* Espacio entre los contenedores */
+    margin: 3px; /* Espacio entre los contenedores */
     background-color: #fff;
     border-radius: 50px;
     text-align: center;
