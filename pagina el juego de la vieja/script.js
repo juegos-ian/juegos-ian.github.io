@@ -1,131 +1,224 @@
-// Selecciona todas las celdas y el botón de reinicio
-const cells = document.querySelectorAll('.cell');
+// Variables globales
+let currentPlayer = 'X'; // Jugador actual
+let gameMode = 'AI'; // Modo actual: 'AI' o '1vs1'
+let gameActive = true; // Indica si el juego está activo
+
+// Elementos del DOM
+const board = document.getElementById('game');
+const cells = board.querySelectorAll('.cell');
 const resetButton = document.getElementById('reset');
-const winLine = document.getElementById('win-line');
+const toggleAIButton = document.getElementById('toggleAI');
+const oneVsOneButton = document.getElementById('one-vs-one');
+const resultImage = document.getElementById('result-image');
+const resultImg = document.getElementById('result-img');
 
-// Inicializa el jugador actual y el estado del juego
-let currentPlayer = 'X';
-let gameActive = true;
-let gameState = ["", "", "", "", "", "", "", "", ""];
+// Elementos para la imagen de perder
+const loseImage = document.getElementById('lose-image');
+const loseImg = document.getElementById('lose-img');
 
-// Condiciones de victoria
-const winningConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
+// Sonidos
+const clickSound = new Audio('sonidos/mario-coin.mp3');
+const winSound = new Audio('sonidos/ringtones-super-mario-bros.mp3');
+const loseSound = new Audio('sonidos/mario-bros game over.mp3');
+
+// Imágenes
+const winImageSrc = 'imagenes/Diseño sin título (84)-Photoroom.png'; // Imagen de victoria en modo IA o 1vs1
+const loseImageSrc = 'imagenes/Diseño sin título (85)-Photoroom.png'; // Imagen de pérdida en modo IA
+
+// Combinaciones ganadoras
+const winningCombination = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // filas
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // columnas
+    [0, 4, 8], [2, 4, 6] // diagonales
 ];
 
-// Maneja el clic en una celda
-function handleCellClick(event) {
-    const clickedCell = event.target;
-    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-index'));
-
-    // Evita que se juegue en una celda ya ocupada o si el juego ha terminado
-    if (gameState[clickedCellIndex] !== "" || !gameActive) {
-        return;
-    }
-
-    // Actualiza el estado del juego y la celda clickeada
-    gameState[clickedCellIndex] = currentPlayer;
-    clickedCell.textContent = currentPlayer;
-
-    // Verifica si hay un ganador
-    const winInfo = checkWin();
-    if (winInfo) {
-        drawWinLine(winInfo);
-        gameActive = false;
-        return;
-    }
-
-    // Verifica si hay un empate
-    if (!gameState.includes("")) {
-        alert("¡Es un empate!");
-        gameActive = false;
-        return;
-    }
-
-    // Cambia el turno al siguiente jugador
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-}
-
-// Verifica si alguien ha ganado
+// Función para comprobar si hay un ganador
 function checkWin() {
-    for (let i = 0; i < winningConditions.length; i++) {
-        const [a, b, c] = winningConditions[i];
-        if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
-            return { condition: winningConditions[i], index: i };
+    for (const combo of winningCombination) {
+        const [a, b, c] = combo;
+        const cellA = cells[a].textContent;
+        const cellB = cells[b].textContent;
+        const cellC = cells[c].textContent;
+
+        if (cellA && cellA === cellB && cellA === cellC) {
+            showWinLine(combo);
+            gameActive = false;
+
+            if (gameMode === 'AI') {
+                if (cellA === 'X') {
+                    winSound.play();
+                    resultImg.src = winImageSrc;
+                    resultImage.classList.remove('hidden'); // Asegura que la imagen se muestre
+                    resultImage.style.display = 'block'; // Asegura que la imagen sea visible
+                } else if (cellA === 'O') {
+                    loseSound.play();
+                    loseImg.src = loseImageSrc;
+                    loseImage.classList.remove('hidden'); // Muestra la imagen de pérdida
+                    loseImage.style.display = 'block'; // Asegura que la imagen sea visible
+                }
+            } else {
+                winSound.play();
+                resultImg.src = winImageSrc;
+                resultImage.classList.remove('hidden'); // Muestra la imagen de resultado
+                resultImage.style.display = 'block'; // Asegura que la imagen sea visible
+            }
+            return cellA; // Retorna el símbolo ganador (X o O)
         }
     }
     return null;
 }
 
-// Dibuja la línea ganadora
-function drawWinLine({ condition, index }) {
-    const [a, b, c] = condition;
+// Función para mostrar la línea de victoria
+function showWinLine(combo) {
+    const winLine = document.getElementById('win-line');
+    winLine.classList.remove('hidden');
+    winLine.className = 'line';
 
-    // Tamaño de cada celda
-    const cellSize = cells[0].offsetWidth;
+    const [a, b, c] = combo;
 
-    // Coordenadas del tablero
-    const boardRect = document.getElementById('game').getBoundingClientRect();
-
-    winLine.style.position = 'absolute';
-    winLine.style.zIndex = '50';
-
-    switch(index) {
-        case 0: // Línea horizontal 1
-        case 1: // Línea horizontal 2
-        case 2: // Línea horizontal 3
-            winLine.className = 'line horizontal';
-            winLine.style.width = `${cellSize * 3}px`; // Ajusta el ancho para cubrir todas las celdas
-            winLine.style.height = '5px'; // Grosor de la línea
-            winLine.style.top = `${cells[a].getBoundingClientRect().top - boardRect.top + (cellSize / 2)}px`;
-            winLine.style.left = `${cells[0].getBoundingClientRect().left - boardRect.left}px`;
-            break;
-        case 3: // Línea vertical 1
-        case 4: // Línea vertical 2
-        case 5: // Línea vertical 3
-            winLine.className = 'line vertical';
-            winLine.style.width = '5px'; // Grosor de la línea
-            winLine.style.height = `${cellSize * 3}px`; // Ajusta la altura para cubrir todas las celdas
-            winLine.style.top = `${cells[0].getBoundingClientRect().top - boardRect.top}px`;
-            winLine.style.left = `${cells[a].getBoundingClientRect().left - boardRect.left + (cellSize / 2)}px`;
-            break;
-        case 6: // Línea diagonal de arriba-izquierda a abajo-derecha
-            winLine.className = 'line diagonal-1';
-            winLine.style.width = `${cellSize * Math.sqrt(2)}px`; // Ajusta el tamaño para cubrir la diagonal
-            winLine.style.height = '5px'; // Grosor de la línea
-            winLine.style.top = `${cells[0].getBoundingClientRect().top - boardRect.top}px`;
-            winLine.style.left = `${cells[0].getBoundingClientRect().left - boardRect.left}px`;
-            break;
-        case 7: // Línea diagonal de abajo-izquierda a arriba-derecha
-            winLine.className = 'line diagonal-2';
-            winLine.style.width = `${cellSize * Math.sqrt(2)}px`; // Ajusta el tamaño para cubrir la diagonal
-            winLine.style.height = '5px'; // Grosor de la línea
-            winLine.style.top = `${cells[2].getBoundingClientRect().top - boardRect.top}px`;
-            winLine.style.left = `${cells[2].getBoundingClientRect().left - boardRect.left}px`;
-            break;
+    if (a === b && a === c) {
+        winLine.classList.add('horizontal');
+        winLine.style.top = `${Math.floor(a / 3) * 100}px`;
+        winLine.style.left = '0';
+        winLine.style.width = '300px';
+        winLine.style.height = '5px';
+        winLine.style.transform = '';
+    } else if ((a % 3) === (b % 3) && (b % 3) === (c % 3)) {
+        winLine.classList.add('vertical');
+        winLine.style.left = `${(a % 3) * 100}px`;
+        winLine.style.top = '0';
+        winLine.style.width = '5px';
+        winLine.style.height = '300px';
+        winLine.style.transform = '';
+    } else if (a === 0 && b === 4 && c === 8) {
+        winLine.classList.add('diagonal-1');
+        winLine.style.left = '0';
+        winLine.style.top = '0';
+        winLine.style.width = '425px';
+        winLine.style.height = '5px';
+        winLine.style.transform = 'rotate(45deg)';
+    } else if (a === 2 && b === 4 && c === 6) {
+        winLine.classList.add('diagonal-2');
+        winLine.style.left = '0';
+        winLine.style.top = '0';
+        winLine.style.width = '425px';
+        winLine.style.height = '5px';
+        winLine.style.transform = 'rotate(-45deg)';
     }
 }
 
-// Reinicia el juego
-function resetGame() {
-    gameActive = true;
-    currentPlayer = 'X';
-    gameState = ["", "", "", "", "", "", "", "", ""];
-    cells.forEach(cell => cell.textContent = "");
-    winLine.className = 'line'; // Oculta la línea ganadora
-    winLine.style.top = '';
-    winLine.style.left = '';
-    winLine.style.width = '';
-    winLine.style.height = '';
+// Función para manejar clics en las celdas
+function handleClick(event) {
+    if (!gameActive) return;
+
+    const cell = event.target;
+    if (cell.textContent) return;
+
+    cell.textContent = currentPlayer;
+    clickSound.play();
+
+    const winner = checkWin();
+    if (!winner && [...cells].every(cell => cell.textContent)) {
+        gameActive = false;
+    } else if (gameMode === 'AI' && currentPlayer === 'X') {
+        currentPlayer = 'O';
+        setTimeout(aiMove, 500);
+    } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    }
 }
 
-// Añade los event listeners para las celdas y el botón de reinicio
-cells.forEach(cell => cell.addEventListener('click', handleCellClick));
-resetButton.addEventListener('click', resetGame);
+// Función para que la IA realice su movimiento
+function aiMove() {
+    if (!gameActive) return;
+
+    const bestMove = findBestMove();
+
+    if (bestMove !== null) {
+        cells[bestMove].textContent = 'O';
+        const winner = checkWin();
+        if (!winner && [...cells].every(cell => cell.textContent)) {
+            gameActive = false;
+        } else {
+            currentPlayer = 'X';
+        }
+    }
+}
+
+// Función para encontrar el mejor movimiento para la IA
+function findBestMove() {
+    const emptyCells = [...cells].map((cell, index) => cell.textContent === '' ? index : null).filter(index => index !== null);
+
+    for (const index of emptyCells) {
+        cells[index].textContent = 'O';
+        if (checkWin() === 'O') {
+            cells[index].textContent = '';
+            return index;
+        }
+        cells[index].textContent = '';
+    }
+
+    for (const index of emptyCells) {
+        cells[index].textContent = 'X';
+        if (checkWin() === 'X') {
+            cells[index].textContent = '';
+            return index;
+        }
+        cells[index].textContent = '';
+    }
+
+    const center = 4;
+    if (emptyCells.includes(center)) {
+        return center;
+    }
+
+    const corners = [0, 2, 6, 8];
+    for (const corner of corners) {
+        if (emptyCells.includes(corner)) {
+            return corner;
+        }
+    }
+
+    return emptyCells[Math.floor(Math.random() * emptyCells.length)];
+}
+
+// Función para configurar el modo AI
+function setAI() {
+    gameMode = 'AI';
+    resetGame();
+}
+
+// Función para configurar el modo 1vs1
+function setOneVsOne() {
+    gameMode = '1vs1';
+    resetGame();
+}
+
+// Función para reiniciar el juego
+function resetGame() {
+    currentPlayer = 'X';
+    cells.forEach(cell => cell.textContent = '');
+    document.getElementById('win-line').classList.add('hidden');
+    resultImage.classList.add('hidden');
+    resultImage.style.display = 'none';
+    loseImage.classList.add('hidden');
+    loseImage.style.display = 'none'; // Asegura que la imagen de perder esté oculta
+
+    // Reiniciar sonidos
+    clickSound.pause();
+    clickSound.currentTime = 0;
+    winSound.pause();
+    winSound.currentTime = 0;
+    loseSound.pause();
+    loseSound.currentTime = 0;
+
+    gameActive = true;
+}
+
+// Espera a que el DOM esté cargado antes de añadir los eventos
+document.addEventListener('DOMContentLoaded', () => {
+    cells.forEach(cell => cell.addEventListener('click', handleClick));
+    resetButton.addEventListener('click', resetGame);
+    toggleAIButton.addEventListener('click', setAI);
+    oneVsOneButton.addEventListener('click', setOneVsOne);
+});

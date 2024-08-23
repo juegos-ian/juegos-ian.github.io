@@ -1,3 +1,9 @@
+
+
+
+
+
+
 html, body {
     height: 100%; /* Ocupa toda la altura del viewport */
     margin: 0; /* Elimina el margen por defecto */
@@ -5,70 +11,56 @@ html, body {
     overflow: hidden; /* Evita el desplazamiento */
 }
 
-
 body {
-    font-family: Verdana, sans-serif; /* Asegura una fuente de respaldo si Verdana no estÃ¡ disponible */
+    font-family: Verdana, sans-serif; /* Fuente de respaldo */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh; /* Ocupa el 100% de la altura del viewport */
-    
-    padding: 0; /* AsegÃºrate de que no haya relleno adicional */
-    background-image: url("imagenes/image.png");
+    background-image: url("imagenes/fondomario.jpg");
     background-repeat: no-repeat;
-    background-size: cover; /* Asegura que la imagen cubra toda el Ã¡rea */
-    background-position: center; /* Centra la imagen en el Ã¡rea visible */
+    background-size: cover; /* Cubre toda el área */
+    background-position: center; /* Centra la imagen */
     background-attachment: fixed;
-    position: relative;
-    
-
-
 }
-
 
 .title-image {
     width: 80%; /* Ajusta el ancho al 80% del contenedor */
-    max-width: 300px; /* Limita el ancho mÃ¡ximo a 400px */
-    display: block; /* Asegura que la imagen se muestre como un bloque */
-    margin: 0; /* Centra la imagen horizontalmente */
-    position: relative; /* Permite ajustes de posiciÃ³n relativos */
-    top:190px; /* Ajusta la imagen hacia arriba desde su posiciÃ³n normal */
-    padding: 0;
-    margin-bottom: -460px;
+    max-width: 300px; /* Limita el ancho máximo a 300px */
+    display: block; /* Muestra la imagen como un bloque */
+    position: relative; /* Posición relativa para ajustes */
+    top: 190px; /* Ajusta la imagen hacia arriba desde su posición normal */
+    margin-bottom: -460px; /* Ajusta la posición inferior */
+    opacity: 1; /* Asegura que la imagen no esté opaca */
 }
 
-
 #game {
-    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 5px;
-    width: 315px; /* Ajusta al tamaÃ±o total del tablero */
-    height: 315px; /* Ajusta al tamaÃ±o total del tablero */
-    margin: 75%;
-    margin-bottom: auto;
-    
+    width: 315px; /* Tamaño total del tablero */
+    height: 315px; /* Tamaño total del tablero */
+    position: relative;
 }
 
 .line {
     position: absolute;
-    background-color:black;
+    background-color: black;
     z-index: 50;
+    display: none; /* Oculta la línea por defecto */
 }
 
 .horizontal {
-    position: absolute;
     width: 100%; /* Abarca todo el ancho del tablero */
     height: 5px;
     top: 50%; /* Centra verticalmente */
     left: 0;
-    transform: translateY(-40%); /* Ajusta el centro vertical */
+    transform: translateY(-50%); /* Ajusta el centro vertical */
 }
 
 .vertical {
-    position: absolute;
     width: 5px;
     height: 100%; /* Abarca toda la altura del tablero */
     top: 0;
@@ -78,7 +70,6 @@ body {
 
 .diagonal-1,
 .diagonal-2 {
-    position: absolute;
     width: 5px; /* Grosor de la línea */
     background-color: black; /* Color de la línea */
     height: 100%; /* Ajusta para cubrir la altura completa del tablero */
@@ -86,31 +77,20 @@ body {
 }
 
 .diagonal-1 {
-    position: absolute;
-    width: 5px;
     height: 425px; /* Asegura que cubra toda la diagonal */
-    background-color: black;
     transform: rotate(45deg);
     transform-origin: top left;
     top: -50px; /* Asegura que la línea comience fuera del borde */
     left: 0;
-    z-index: 50;
 }
 
 .diagonal-2 {
-    position: absolute;
-    width: 5px;
     height: 425px; /* Asegura que cubra toda la diagonal */
-    background-color: black;
     transform: rotate(-45deg);
     transform-origin: top right;
     top: -50px; /* Asegura que la línea comience fuera del borde */
     right: 0;
-    z-index: 50;
 }
-
-
-
 
 .cell {
     display: flex;
@@ -119,190 +99,238 @@ body {
     font-size: 80px; /* Tamaño de la fuente */
     font-weight: bold;
     background-color: #f9f9f9; /* Color de fondo suave */
-    border: 2px solid red; /* Borde gris oscuro */
+    border: 2px solid #00f; /* Borde azul */
     border-radius: 8px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar sobre la celda */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
     z-index: 5;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    box-shadow: 0 0 10px #00f, 0 0 20px #00f; /* Sombra suave */
+    color: #00f; /* Color del texto azul */
 }
 
-/* Efecto hover para las celdas */
 .cell:hover {
     background-color: #e0e0e0; /* Color de fondo al pasar el cursor */
     transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el cursor */
 }
 
-/* Efecto active para las celdas (cuando se hace clic) */
 .cell:active {
-    background-color:red; /* Color de fondo cuando se hace clic */
+    background-color: red; /* Color de fondo cuando se hace clic */
     transform: scale(0.95); /* Reduce ligeramente el tamaño al hacer clic */
 }
 
-
-#reset {
-    position: fixed; /* Permite que el botÃ³n permanezca en una posiciÃ³n fija en el viewport */
-    bottom: 20px; /* Ajusta la distancia desde el borde inferior del viewport */
-    left: 49%; /* Centra horizontalmente */
-    transform: translateX(-50%); /* Ajusta la posiciÃ³n horizontal para centrarlo */
-    padding: 12px 24px; /* TamaÃ±o del botÃ³n con mÃ¡s relleno */
-    font-size: 18px; /* TamaÃ±o de la fuente del texto */
+#reset,
+#toggleAI,
+#one-vs-one {
+    position: fixed; /* Permite que el botón permanezca en una posición fija en el viewport */
+    padding: 12px 24px; /* Tamaño del botón con más relleno */
+    font-size: 18px; /* Tamaño de la fuente del texto */
     font-weight: bold; /* Negrita para el texto */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botÃ³n */
-    background-color: green; /* Color de fondo oscuro */
-    color: #fff; /* Color del texto blanco */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     border: none; /* Elimina el borde predeterminado */
     border-radius: 50px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
-    z-index: 1000; /* Asegura que el botÃ³n estÃ© por encima de otros elementos */
+    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
 }
 
-    
+#reset {
+    bottom: 20px; /* Distancia desde el borde inferior */
+    left: 30%; /* Centra horizontalmente */
+    background-color: green; /* Color de fondo oscuro */
+    color: #fff; /* Color del texto blanco */
+    border: none; /* Elimina el borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
 
-/* Efecto hover para el botÃ³n */
 #reset:hover {
     background-color: blue; /* Color de fondo al pasar el cursor */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el cursor */
 }
 
-/* Efecto focus para el botÃ³n (cuando el botÃ³n recibe el foco) */
 #reset:focus {
     outline: none; /* Elimina el borde de enfoque predeterminado */
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra blanca alrededor del botÃ³n al enfocarse */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra blanca alrededor del botón al enfocarse */
 }
 
+#toggleAI {
+    bottom: 80px; /* Distancia desde el borde inferior */
+    left: 4%; /* Centra horizontalmente */
+    background-color: #007bff; /* Color de fondo azul */
+    color: #fff; /* Color del texto blanco */
+}
 
+#toggleAI:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el cursor */
+}
 
+#toggleAI:focus {
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra blanca alrededor del botón al enfocarse */
+}
 
-#win-image {
+#one-vs-one {
+    bottom: 12%; /* Distancia desde el borde inferior */
+    left: 62%; /* Centra horizontalmente */
+    background-color: #28a745; /* Color de fondo verde */
+    color: #fff; /* Color del texto blanco */
+}
+
+#one-vs-one:hover {
+    background-color: #218838; /* Color de fondo al pasar el cursor */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el cursor */
+}
+
+#one-vs-one:focus {
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra blanca alrededor del botón al enfocarse */
+}
+
+/* Contenedor para la imagen de resultado */
+#result-image {
+    position: fixed; /* Permite que el contenedor permanezca en una posición fija en la pantalla */
+    top: 50%; /* Centra verticalmente */
+    left: 10%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el centro de la imagen */
+    width: 100%; /* Ajusta el ancho del contenedor al 80% del viewport */
+    max-width: none; /* Elimina el límite máximo de ancho */
+    height: auto; /* Ajusta la altura de acuerdo con la imagen */
+    background-color: transparent; /* Asegura que no haya un color de fondo visible */
+    padding: 0; /* Elimina el padding si no es necesario */
+    margin: 0; /* Elimina el margen si no es necesario */
+    z-index: 1000; /* Asegura que el contenedor esté por encima de otros elementos */
+
+}
+
+/* Imagen dentro del contenedor */
+#result-img {
+    width: 200%; /* Ajusta la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+    border: none; /* Elimina el borde si no es necesario */
+}
+
+#lose-image {
     position: fixed;
-    top: 50%;
+    top: 57%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 50; /* Asegúrate de que esté por encima de otros elementos */
+    width: 600%; /* Ajusta según tus necesidades */
+    max-width: 900px; /* Ajusta según tus necesidades */
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
 }
 
-#win-image img {
-    width: 300px; /* Ajusta el tamaño según sea necesario */
-    border: 5px solid gold; /* Opcional: Agrega un borde para resaltar la imagen */
+#lose-img {
+    width: 100%;
+    height: auto;
 }
 
 .hidden {
-    display: none; /* Oculta el elemento */
+    display: none;
 }
 
 
+
+/* Ajustes para pantallas más pequeñas */
 @media (max-width: 480px) {
-    .line.horizontal {
-        height: 3px; /* Grosor de la línea horizontal */
-        width: calc(100% + 10px); /* Ajusta el ancho para cubrir el tablero completo */
-        position: absolute;
-        top: 50%; /* Centra verticalmente */
-        left: 50%;
-        transform: translateY(1.%) scaleX(1.1); /* Escala el ancho */
-    }
-
-    .line.vertical {
-        width: 3px; /* Grosor de la línea vertical */
-        height: calc(100% + 10px); /* Ajusta la altura para cubrir el tablero completo */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) scaleY(1.1); /* Escala la altura */
-    }
-
-    .line.diagonal-1,
-    .line.diagonal-2 {
-        height: 2px; /* Grosor de la línea diagonal */
-        width: 100vw; /* Ancho extendido para cubrir toda la pantalla */
-        position: absolute;
-        transform-origin: center center; /* Centro para la rotación */
-    }
-
-    .line.diagonal-1 {
-        transform: rotate(45deg) scaleX(2.9) scaleY(1) translateY(39px) translateX(48px); /* Rotación, escala, y ajuste de posición */
-        top: -50%; /* Ajusta la posición vertical para abarcar el tablero */
-        left: -50%;
-    }
-
-    .line.diagonal-2 {
-        transform: rotate(-45deg) scaleX(2.9) scaleY(1) translateY(18px) translateX(-55px); /* Rotación, escala, y ajuste de posición */
-        top: -50%; /* Ajusta la posición vertical para abarcar el tablero */
-        left: -50%;
-        
-    }
-
-
-  
     .title-image {
-        top: 0; /* Ajusta la posiciÃ³n del tÃ­tulo */
-        width: 100%; /* Asegura que la imagen de tÃ­tulo se ajuste al ancho */
-        transform: translateY(-300px);
-        
+        top: 0; /* Ajusta la posición del título */
+        width: 100%; /* Ajusta el ancho de la imagen de título */
+        transform: translateY(-300px); /* Ajusta el desplazamiento vertical */
+        opacity: 1; /* Asegura que la imagen no esté opaca */
     }
-   
+
     #game {
-        
-           display: grid;
-  
-           grid-template-columns: repeat(3, 77px); /* Tamaño de las celdas en vista móvil */
-     
-           grid-template-rows: repeat(3, 80px);
-     
-           gap: 5px; /* Espacio entre las celdas */
-    
-           width: 244px; /* Tamaño total del tablero ajustado para incluir el gap */
-     
-           height: 252px; /* Tamaño total del tablero ajustado para incluir el gap */
-      
-           margin: 0 auto; /* Centra el tablero horizontalmente */
-      
-           position: relative; /* Necesario para el pseudo-elemento si lo usas */
-     
-           z-index: 2; /* Asegura que el tablero esté por encima del borde */
-      
-           border: 1px solid #333; /* Línea alrededor del tablero, más gruesa */
-       
-           box-sizing: border-box; /* Asegura que el borde no afecte el tamaño del contenedor */
-   
-           box-shadow: 0 0 0 4px blue;
-           background-clip: padding-box;
-           border-radius: 16px;
-    
+        grid-template-columns: repeat(3, 77px); /* Tamaño de las celdas en vista móvil */
+        grid-template-rows: repeat(3, 80px);
+        width: 244px; /* Tamaño total del tablero ajustado */
+        height: 252px; /* Tamaño total del tablero ajustado */
+        margin: -10px auto; /* Centra el tablero horizontalmente */
+        margin-top: -100px;
+        border: 2px solid #39ff14; /* Línea alrededor del tablero */
+        box-shadow: 0 0 10px #39ff14, 0 0 16px #39ff14; /* Resplandor de neón */
+        background-clip: padding-box;
+        border-radius: 16px;
     }
-   
 
     .cell {
-        font-size: px; /* Ajusta el tamaÃ±o de la fuente */
-        color: #d32f2f; 
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        font-size: 60px; /* Ajusta el tamaño de la fuente */
+        color: #d32f2f; /* Color del texto */
+        box-shadow: 0 0 8px #39ff14, 0 0 25px #39ff14;
+        text-shadow: 0 0 1px #d32f2f, 0 0 4px #d32f2f, 0 0 1px #d32f2f;
         font-family: 'Lobster', cursive;
+        border: 4px solid #00f; /* Borde azul */
     }
 
     #reset {
-        bottom: 120px; /* Ajusta la distancia del botÃ³n desde el borde inferior */
-        font-size: 16px; /* Ajusta el tamaÃ±o de la fuente del botÃ³n */
-        padding: 10px 20px; /* Ajusta el tamaÃ±o del botÃ³n */
-        background-color: #388E3C;
+        bottom: 200px; /* Ajusta la distancia desde el borde inferior */
+        font-size: 16px; /* Ajusta el tamaño de la fuente del botón */
+        padding: 8px 15px; /* Ajusta el tamaño del botón */
+        background-color: #fbc02d; /* Color de fondo amarillo */
+        color: #fff; /* Color del texto blanco */
+        border: 2px solid red; /* Borde de neón amarillo */
+        box-shadow: 0 0 15px #fbc02d, 0 0 30px #fbc02d, 0 0 45px #fbc02d; /* Resplandor de neón amarillo */
+        border-radius: 8px; /* Bordes redondeados */
+        left: 35%; 
+         z-index: 2000; 
     }
+
     #reset:hover {
-       
-    background-color: #2C6B2F; /* Cambia el color de fondo al pasar el cursor */
+        background-color: #f9a825; /* Cambia el color de fondo al pasar el cursor */
+        box-shadow: 0 0 20px #fbc02d, 0 0 35px #fbc02d, 0 0 50px #fbc02d; /* Aumenta el resplandor de neón amarillo al pasar el cursor */
     }
+
     #reset:focus {
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Ajusta la sombra de enfoque */
+    }
+
+    #toggleAI {
+        bottom: 150px; /* Distancia desde el borde inferior */
+        font-size: 16px; /* Tamaño de la fuente del botón */
+        background-color: #007bff; /* Color de fondo azul */
+        color: #fff; /* Color del texto blanco */
+        padding: 8px 15px; /* Ajusta el tamaño del botón */
+        border: 2px solid red; /* Borde de neón amarillo */
+        box-shadow: 0 0 15px #fbc02d, 0 0 30px #fbc02d, 0 0 45px #fbc02d; /* Resplandor de neón amarillo */
+        border-radius: 8px; /* Bordes redondeados */
+        left: 9%; 
+    }
+
+    #toggleAI:hover {
+        background-color: #0056b3; /* Color de fondo al pasar el cursor */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el cursor */
+    }
+
+    #toggleAI:focus {
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra blanca alrededor del botón al enfocarse */
+    }
+
+    #one-vs-one {
+        bottom: 150px; /* Distancia desde el borde inferior */
+        left: 60%; /* Centra horizontalmente */
+        background-color: #28a745; /* Color de fondo verde */
+        color: #fff; /* Color del texto blanco */
+        padding: 7px 30px; /* Tamaño del botón */
+        border: 2px solid red; /* Borde de neón amarillo */
+        box-shadow: 0 0 15px #fbc02d, 0 0 30px #fbc02d, 0 0 45px #fbc02d; /* Resplandor de neón amarillo */
+        border-radius: 8px; /* Bordes redondeados */
+    }
+
+    #one-vs-one:hover {
+        background-color: #218838; /* Color de fondo al pasar el cursor */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el cursor */
+    }
+
+    #one-vs-one:focus {
+        outline: none; /* Elimina el borde de enfoque predeterminado */
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra blanca alrededor del botón al enfocarse */
+    }
+    #result-img {
+    width: 150px;
+    height: auto;
         
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Ajusta la sombra de enfoque */
-    }
-
-     #win-image {
-        top: 40%; /* Ajusta la posición vertical */
-        left: 50%;
-        transform: translate(-50%, -40%); /* Ajusta la posición vertical para pantallas pequeñas */
-    }
-
-    #win-image img {
-        width: 200px; /* Ajusta el tamaño para pantallas pequeñas */
-    }
-
+}
 }

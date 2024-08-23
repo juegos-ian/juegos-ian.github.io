@@ -5,29 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de la Vieja</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #result-image {
+            position: fixed;
+            top: 60%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            width: 300%;
+            max-width: none;
+            height: auto;
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            z-index: 1000;
+        }
+
+        #result-img {
+            width: 100%;
+            height: auto;
+        }
+
+        
+    </style>
 </head>
 <body>
     <header>
-        <img src="imagenes/Portada_libro_cuentos_infantiles_niña_magico-removebg-preview (1).png" alt="Título de la página" class="title-image">
+        <img src="imagenes/titulo.png" alt="Título de la página" class="title-image">
     </header>
     
-    <div id="game">
-        <div id="win-line" class="line"></div>
-        <div class="cell" data-index="0"></div>
-        <div class="cell" data-index="1"></div>
-        <div class="cell" data-index="2"></div>
-        <div class="cell" data-index="3"></div>
-        <div class="cell" data-index="4"></div>
-        <div class="cell" data-index="5"></div>
-        <div class="cell" data-index="6"></div>
-        <div class="cell" data-index="7"></div>
-        <div class="cell" data-index="8"></div>
-    </div>
-    <button id="reset">Reiniciar</button>
-
-    <!-- Imagen del ganador -->
+    <main>
+        <div id="game">
+            <div id="win-line" class="line"></div>
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+    </main>
     
+    <footer id="buttons-container">
+        <button id="reset">Reiniciar</button>
+        <button id="toggleAI">1 vs Mario</button>
+        <button id="one-vs-one">1 vs 1</button>
+    </footer>
 
+    <!-- Elementos de audio para los sonidos -->
+    <audio id="click-sound" src="sonidos/mario-coin.mp3"></audio>
+    <audio id="win-sound" src="sonidos/ringtones-super-mario-bros.mp3"></audio>
+    <audio id="lose-sound" src="sonidos/mario-bros game over.mp3"></audio>
+
+    <!-- Contenedor de imagen para mostrar el resultado -->
+    <div id="result-image" class="hidden">
+        <img id="result-img" src="" alt="Resultado" />
+    </div>
+
+    <!-- Contenedor de imagen para mostrar el resultado de perder -->
+<div id="lose-image" class="hidden">
+    <img id="lose-img" src="" alt="Perder">
+</div>
 
     <script src="script.js"></script>
 </body>
