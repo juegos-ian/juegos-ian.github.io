@@ -34,39 +34,44 @@ const winningCombination = [
 
 // Función para comprobar si hay un ganador
 function checkWin() {
-    for (const combo of winningCombination) {
-        const [a, b, c] = combo;
+    const winningCombinations = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
+    ];
+
+    for (const combination of winningCombinations) {
+        const [a, b, c] = combination;
         const cellA = cells[a].textContent;
         const cellB = cells[b].textContent;
         const cellC = cells[c].textContent;
 
+        console.log(`Checking combination: ${combination} -> ${cellA}, ${cellB}, ${cellC}`);
+
         if (cellA && cellA === cellB && cellA === cellC) {
-            showWinLine(combo);
+            console.log(`Winner found: ${cellA}`);
+            showWinLine(combination);
             gameActive = false;
 
-            if (gameMode === 'AI') {
-                if (cellA === 'X') {
-                    winSound.play();
-                    resultImg.src = winImageSrc;
-                    resultImage.classList.remove('hidden'); // Asegura que la imagen se muestre
-                    resultImage.style.display = 'block'; // Asegura que la imagen sea visible
-                } else if (cellA === 'O') {
-                    loseSound.play();
-                    loseImg.src = loseImageSrc;
-                    loseImage.classList.remove('hidden'); // Muestra la imagen de pérdida
-                    loseImage.style.display = 'block'; // Asegura que la imagen sea visible
-                }
-            } else {
+
+            if (cellA === 'X') {
                 winSound.play();
                 resultImg.src = winImageSrc;
-                resultImage.classList.remove('hidden'); // Muestra la imagen de resultado
-                resultImage.style.display = 'block'; // Asegura que la imagen sea visible
+                resultImage.classList.remove('hidden');
+                resultImage.style.display = 'block';
             }
-            return cellA; // Retorna el símbolo ganador (X o O)
+             else if (cellA === 'O') {
+                loseSound.play();
+                loseImg.src = loseImageSrc;
+                loseImage.classList.remove('hidden');
+                loseImage.style.display = 'block';
+            }
+            return cellA;
         }
     }
     return null;
 }
+
 
 // Función para mostrar la línea de victoria
 function showWinLine(combo) {
@@ -108,6 +113,7 @@ function showWinLine(combo) {
 }
 
 // Función para manejar clics en las celdas
+// Función para manejar clics en las celdas
 function handleClick(event) {
     if (!gameActive) return;
 
@@ -117,12 +123,14 @@ function handleClick(event) {
     cell.textContent = currentPlayer;
     clickSound.play();
 
-    const winner = checkWin();
+    console.log(`Player ${currentPlayer} moved to cell ${[...cells].indexOf(cell)}`);
+
+    const winner = checkWin(); // Verificar si hay un ganador después del movimiento
     if (!winner && [...cells].every(cell => cell.textContent)) {
-        gameActive = false;
-    } else if (gameMode === 'AI' && currentPlayer === 'X') {
+        gameActive = false; // Empate
+    } else if (!winner && gameMode === 'AI' && currentPlayer === 'X') {
         currentPlayer = 'O';
-        setTimeout(aiMove, 500);
+        setTimeout(aiMove, 500); // Esperar 500ms antes de que la IA se mueva
     } else {
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     }
@@ -136,14 +144,17 @@ function aiMove() {
 
     if (bestMove !== null) {
         cells[bestMove].textContent = 'O';
-        const winner = checkWin();
+        console.log(`AI moved to cell ${bestMove}`);
+
+        const winner = checkWin(); // Verificar si hay un ganador después del movimiento de la IA
         if (!winner && [...cells].every(cell => cell.textContent)) {
-            gameActive = false;
+            gameActive = false; // Empate
         } else {
-            currentPlayer = 'X';
+            currentPlayer = 'X'; // Cambiar de turno al jugador humano
         }
     }
 }
+
 
 // Función para encontrar el mejor movimiento para la IA
 function findBestMove() {
