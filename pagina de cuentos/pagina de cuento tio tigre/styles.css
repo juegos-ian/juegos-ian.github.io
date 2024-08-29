@@ -1,0 +1,174 @@
+/* Estilos Generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+    background-color: #f4f4f4;
+   
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.story-block {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+h1 {
+    margin-top: 0;
+    text-align:center;
+     color: lightgreen;
+}
+
+.audio-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative; /* Habilita el ajuste de la posición */
+}
+
+.audio-container audio {
+    width: 60%;
+    max-width: 300px;
+    height: 45px;
+    background-color: #d4edda;
+    border-radius: 50px;
+    border: 1px solid #28a745;
+    outline: none;
+    top: 10 %;
+}
+
+/* Botón de reproducción personalizado */
+#custom-play-button {
+    width: 60px;
+    height: 60px;
+    background-color: #28a745;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    top: -20px; /* Ajusta para que sobresalga hacia arriba */
+    left: 22%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+#custom-play-button:hover {
+    transform: translateX(-50%) scale(1.1); /* Efecto hover para agrandar */
+}
+
+/* Estiliza los controles nativos */
+.audio-container audio::-webkit-media-controls-panel {
+    background-color: #d4edda;
+    border-radius: 10px;
+}
+
+.audio-container audio::-webkit-media-controls-play-button {
+    background-color: #28a745;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: -10px;
+}
+
+.audio-container audio::-webkit-media-controls-play-button::before {
+    content: "▶";
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* Ajustes para el control de volumen */
+.audio-container audio::-webkit-media-controls-volume-slider {
+    background-color: #28a745;
+    height: 4px;
+}
+
+.audio-container audio::-webkit-media-controls-volume-slider::-webkit-slider-runnable-track {
+    background-color: #28a745;
+    border-radius: 2px;
+}
+
+.audio-container audio::-webkit-media-controls-volume-slider::-webkit-slider-thumb {
+    background-color: #fff;
+    border: 2px solid #28a745;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+}
+
+.story-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.story-text {
+    margin-bottom: 20px;
+}
+
+.story-text p {
+    margin: 0 0 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.home-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.home-btn:hover {
+    background-color: #218838;
+}
+
+.home-btn:active {
+    transform: scale(0.98);
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 480px) {
+    .audio-container audio {
+        width: 60%; /* Ajusta el ancho del control de audio para pantallas pequeñas */
+        height: 30px;
+       
+    }
+
+    #custom-play-button {
+        width: 50px;
+        height: 50px;
+        top: -11px; /* Ajusta la posición para pantallas pequeñas */
+        font-size: 14px;
+        
+    }
+}

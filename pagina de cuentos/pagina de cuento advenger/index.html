@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Avengers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="story-block">
+            <h1>Los Avengers</h1>
+
+            <div class="audio-container">
+                <audio id="audio-player" controls controlslist="nodownload">
+                    <source src="sonidos/audioadvenger.mp3" type="audio/mp3">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                <!-- Botón de reproducción personalizado -->
+                <button id="custom-play-button">▶</button>
+            </div>
+
+            <img src="imagenes/fondo2.jpg" alt="cuento avenger" class="story-image">
+
+            <div class="story-text">
+                <p>Hola Ian Alejandro, te habla tu amigo Estif, o mejor conocido como Capitán América. Tus papás me han dicho que tienes un escudo como el mío. ¡Te felicito, eres un mini-avenger! Te voy a contar una historia con mis amigos que te va a encantar.</p>
+
+                <p>Una mañana soleada en Nueva York, los Avengers estaban en la Torre. Iron Man ajustaba su traje, Capitán América revisaba mapas y Black Widow estaba atenta. De repente, Loki apareció con un gran estruendo, dispuesto a robar el cubo cósmico y sembrar el caos.</p>
+
+                <p>Con una risa maliciosa, anunció su plan perfecto. Thor, observando la fuente de agua en la terraza, ideó una estrategia. Propuso usar el agua para distraer a Loki. Black Widow y los demás estuvieron de acuerdo.</p>
+
+                <p>Mientras Loki intentaba abrir el cubo con su magia, los Avengers activaron la fuente. Una cascada de agua desbordó y atrapó a Loki, desorientándolo. Sin poder hacer frente a la distracción, Loki vio cómo los Avengers le arrebataron el cubo cósmico. Empapado y frustrado, Loki se retiró para pensar en un nuevo plan.</p>
+
+                <p>Los Avengers celebraron su victoria, entendiendo que el ingenio y el trabajo en equipo pueden superar cualquier desafío.</p>
+
+                <p><strong>Moraleja:</strong> La astucia y la cooperación son más efectivas que la fuerza bruta.</p>
+
+                <p>¿Qué te pareció, Ian? Divertido, ¿cierto?</p>
+
+                <p>Bueno, ya es hora de dormir, guerrero. Recuerda hacerles siempre caso a tus papás y nunca olvidar orar a la hora de dormir.</p>
+
+                <p>Hasta la próxima.</p>
+            </div>
+
+            <!-- Contenedor para el botón de inicio centrado -->
+            <div class="btn-container">
+                <button onclick="goHome()" class="home-btn"><i class="fas fa-home"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para controlar la navegación
+        function goHome() {
+            window.location.href = 'index.html'; // Reemplaza 'index.html' con la URL de tu página de inicio
+        }
+
+        // Inicializar el botón de reproducción personalizado
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioPlayer = document.getElementById('audio-player');
+            const playButton = document.getElementById('custom-play-button');
+            
+            // Inicializar el texto del botón basado en el estado actual del audio
+            if (audioPlayer.paused) {
+                playButton.textContent = "▶"; // Icono de reproducción
+            } else {
+                playButton.textContent = "❚❚"; // Icono de pausa
+            }
+        });
+
+        // Función para controlar el audio con el botón personalizado
+        document.getElementById('custom-play-button').addEventListener('click', function() {
+            const audioPlayer = document.getElementById('audio-player');
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                this.textContent = "❚❚"; // Cambia a icono de pausa
+            } else {
+                audioPlayer.pause();
+                this.textContent = "▶"; // Cambia a icono de reproducción
+            }
+        });
+    </script>
+</body>
+</html>

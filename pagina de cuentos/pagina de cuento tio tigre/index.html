@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tío Tigre y Tío Conejo</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -17,7 +18,7 @@
                     Tu navegador no soporta el elemento de audio.
                 </audio>
                 <!-- Botón de reproducción personalizado -->
-                <button id="custom-play-button"></button>
+                <button id="custom-play-button">▶</button>
             </div>
 
             <img src="imagenes/tiotigre.jpg" alt="Tío Tigre y Tío Conejo" class="story-image">
@@ -36,11 +37,11 @@
                 <p><strong>Moraleja:</strong> Más vale ser astuto que fuerte.</p>
             </div>
 
-                
-
             <!-- Contenedor para el botón de inicio centrado -->
             <div class="btn-container">
-                <button onclick="goHome()" class="home-btn">Inicio</button>
+                <button onclick="goHome()" class="home-btn">
+                    <i class="fas fa-home"></i>
+                </button>
             </div>
         </div>
     </div>
