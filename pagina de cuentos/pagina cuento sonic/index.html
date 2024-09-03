@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonic</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="story-block">
+            <h1>Sonic</h1>
+
+            <div class="audio-container">
+                <audio id="audio-player" controls controlslist="nodownload">
+                    <source src="sonidos/audiosonic.mp3" type="audio/mp3">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                <!-- Botón de reproducción personalizado -->
+                <button id="custom-play-button">▶</button>
+            </div>
+
+            <img src="imagenes/f21e0fc6019b4a671df347fe68b14054.jpg" alt="cuento Sonic" class="story-image">
+
+            <div class="story-text">
+                <p>hola ían, te habla tu amigo sonic.
+                 y esta es mi historia.</p>
+
+                <p>En un bosque lejano, Sonic el Erizo encontró una tortuga atrapada en una trampa.</p>
+
+                <p>Sonic era muy rápido, decidió esperar a que su amigo Tails, viniera a ayudar.</p>
+
+                <p>Juntos liberaron a la tortuga y la llevaron a un lugar seguro.</p>
+
+                
+
+                <p><strong>Moraleja:</strong> La verdadera fuerza no siempre está en la rapidez, sino en la amistad y en la colaboración para superar obstáculos.</p>
+
+                <p>te gustó ían?</p>
+
+                <p>pronto tendre muchas mas historias para ti</p>
+
+                <p>feliz noche recuerda orar.</p>
+            </div>
+
+            <!-- Contenedor para el botón de inicio centrado -->
+            <div class="btn-container">
+                <button onclick="goHome()" class="home-btn"><i class="fas fa-home"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para controlar la navegación
+        function goHome() {
+            window.location.href = 'index.html'; // Reemplaza 'index.html' con la URL de tu página de inicio
+        }
+
+        // Inicializar el botón de reproducción personalizado
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioPlayer = document.getElementById('audio-player');
+            const playButton = document.getElementById('custom-play-button');
+            
+            // Inicializar el texto del botón basado en el estado actual del audio
+            if (audioPlayer.paused) {
+                playButton.textContent = "▶"; // Icono de reproducción
+            } else {
+                playButton.textContent = "❚❚"; // Icono de pausa
+            }
+        });
+
+        // Función para controlar el audio con el botón personalizado
+        document.getElementById('custom-play-button').addEventListener('click', function() {
+            const audioPlayer = document.getElementById('audio-player');
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                this.textContent = "❚❚"; // Cambia a icono de pausa
+            } else {
+                audioPlayer.pause();
+                this.textContent = "▶"; // Cambia a icono de reproducción
+            }
+        });
+    </script>
+</body>
+</html>
